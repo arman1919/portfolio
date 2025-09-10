@@ -1,0 +1,1119 @@
+"use client"
+
+import type React from "react"
+
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  ExternalLink,
+  Code,
+  Database,
+  Brain,
+  Wrench,
+  GraduationCap,
+  Languages,
+  Users,
+  CheckCircle,
+  Award,
+  ImageIcon,
+  Filter,
+  Bot,
+  Zap,
+  Globe,
+  Search,
+  MessageSquare,
+} from "lucide-react"
+
+export default function Portfolio() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("home")
+  const [selectedCategory, setSelectedCategory] = useState("all")
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "skills", "projects", "gallery", "experience", "contact"]
+      const scrollPosition = window.scrollY + 100
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const offsetTop = element.offsetTop
+          const offsetHeight = element.offsetHeight
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsMenuOpen(false)
+  }
+
+  const galleryImages = [
+    { id: 1, src: "/wordpress-fox-theme-homepage.jpg", category: "wordpress", title: "Fox Theme" },
+    { id: 2, src: "/wordpress-pages-builder-interface.jpg", category: "wordpress", title: "Pages Builder" },
+    { id: 3, src: "/wordpress-quiz-plugin-interface.jpg", category: "wordpress", title: "Quiz Plugin" },
+    { id: 4, src: "/wordpress-plugin-development-dashboard.jpg", category: "plugin", title: "Plugin Dashboard" },
+    { id: 5, src: "/modern-website-development-interface.jpg", category: "website", title: "Website Development" },
+    { id: 6, src: "/level-studio-website-homepage.jpg", category: "website", title: "Level Studio" },
+  ]
+
+  const filteredImages =
+    selectedCategory === "all" ? galleryImages : galleryImages.filter((img) => img.category === selectedCategory)
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+
+    setIsSubmitting(false)
+    setSubmitStatus("success")
+    setFormData({ name: "", email: "", message: "" })
+
+    setTimeout(() => setSubmitStatus("idle"), 3000)
+  }
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex-shrink-0">
+              <span className="text-2xl font-bold text-primary">AR</span>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                {[
+                  { id: "home", label: "Home" },
+                  { id: "about", label: "About" },
+                  { id: "skills", label: "Skills" },
+                  { id: "projects", label: "Projects" },
+                  { id: "gallery", label: "Gallery" },
+                  { id: "experience", label: "Experience" },
+                  { id: "contact", label: "Contact" },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      activeSection === item.id
+                        ? "text-primary-foreground bg-primary border border-primary"
+                        : "text-slate-900 hover:text-slate-700 hover:bg-slate-100/20"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-foreground hover:text-primary">
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden glass-card border-t border-border">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {[
+                { id: "home", label: "Home" },
+                { id: "about", label: "About" },
+                { id: "skills", label: "Skills" },
+                { id: "projects", label: "Projects" },
+                { id: "gallery", label: "Gallery" },
+                { id: "experience", label: "Experience" },
+                { id: "contact", label: "Contact" },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
+                    activeSection === item.id
+                      ? "text-primary-foreground bg-primary border border-primary"
+                      : "text-slate-900 hover:text-slate-700 hover:bg-slate-100/20"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20"></div>
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
+              <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
+                <span className="text-4xl font-bold text-primary">AR</span>
+              </div>
+            </div>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 text-balance">Arman Rafayelyan</h1>
+          <p className="text-xl sm:text-2xl text-muted-foreground mb-6">Web Developer & ML Engineer</p>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
+            Passionate about creating innovative web solutions and leveraging machine learning to solve complex
+            problems. Experienced in full-stack development with a focus on modern technologies and best practices.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button
+              onClick={() => scrollToSection("contact")}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              Get In Touch
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => scrollToSection("projects")}
+              className="border-border hover:bg-accent/10"
+            >
+              View Work
+            </Button>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Phone size={16} />
+              <span>+374 77 123456</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail size={16} />
+              <span>arman@example.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin size={16} />
+              <span>Yerevan, Armenia</span>
+            </div>
+          </div>
+
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <ChevronDown size={24} className="text-muted-foreground" />
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">About Me</h2>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-lg text-muted-foreground mb-6 text-pretty">
+                I'm a passionate web developer and machine learning engineer with a strong foundation in both frontend
+                and backend technologies. My journey in tech has been driven by curiosity and a desire to create
+                meaningful solutions that make a difference.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 text-pretty">
+                With experience in modern web frameworks, cloud technologies, and ML algorithms, I bring a unique
+                perspective to every project. I believe in writing clean, maintainable code and staying up-to-date with
+                the latest industry trends.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                <Card className="glass-card">
+                  <CardContent className="p-6">
+                    <GraduationCap className="text-primary mb-4" size={32} />
+                    <h3 className="font-semibold mb-2">Education</h3>
+                    <p className="text-sm text-muted-foreground">Computer Science Degree</p>
+                    <p className="text-sm text-muted-foreground">Specialized in AI/ML</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="glass-card">
+                  <CardContent className="p-6">
+                    <Languages className="text-secondary mb-4" size={32} />
+                    <h3 className="font-semibold mb-2">Languages</h3>
+                    <p className="text-sm text-muted-foreground">Armenian (Native)</p>
+                    <p className="text-sm text-muted-foreground">English (Fluent)</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <Card className="glass-card">
+                <CardContent className="p-6">
+                  <Users className="text-primary mb-4" size={32} />
+                  <h3 className="font-semibold mb-2">Soft Skills</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary">Problem Solving</Badge>
+                    <Badge variant="secondary">Team Collaboration</Badge>
+                    <Badge variant="secondary">Communication</Badge>
+                    <Badge variant="secondary">Leadership</Badge>
+                    <Badge variant="secondary">Adaptability</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card">
+                <CardContent className="p-6">
+                  <Award className="text-secondary mb-4" size={32} />
+                  <h3 className="font-semibold mb-2">Professional Journey</h3>
+                  <p className="text-sm text-muted-foreground text-pretty">
+                    From building my first website to developing complex ML systems, I've consistently pushed the
+                    boundaries of what's possible with technology. My experience spans startups to enterprise solutions.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Skills & Technologies</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-6">
+                <Code className="text-primary mb-4" size={40} />
+                <h3 className="font-semibold mb-4">Frontend Technologies</h3>
+                <div className="space-y-2">
+                  <Badge className="mr-2 mb-2">React</Badge>
+                  <Badge className="mr-2 mb-2">Next.js</Badge>
+                  <Badge className="mr-2 mb-2">TypeScript</Badge>
+                  <Badge className="mr-2 mb-2">Tailwind CSS</Badge>
+                  <Badge className="mr-2 mb-2">Vue.js</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-6">
+                <Database className="text-secondary mb-4" size={40} />
+                <h3 className="font-semibold mb-4">Backend Development</h3>
+                <div className="space-y-2">
+                  <Badge className="mr-2 mb-2">Node.js</Badge>
+                  <Badge className="mr-2 mb-2">Python</Badge>
+                  <Badge className="mr-2 mb-2">PostgreSQL</Badge>
+                  <Badge className="mr-2 mb-2">MongoDB</Badge>
+                  <Badge className="mr-2 mb-2">REST APIs</Badge>
+                  <Badge className="mr-2 mb-2">MySQL</Badge>
+                  <Badge className="mr-2 mb-2">MongoDB Atlas</Badge>
+                  <Badge className="mr-2 mb-2">Payment APIs</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-6">
+                <Wrench className="text-primary mb-4" size={40} />
+                <h3 className="font-semibold mb-4">Tools & Environment</h3>
+                <div className="space-y-2">
+                  <Badge className="mr-2 mb-2">Git</Badge>
+                  <Badge className="mr-2 mb-2">Docker</Badge>
+                  <Badge className="mr-2 mb-2">AWS</Badge>
+                  <Badge className="mr-2 mb-2">Vercel</Badge>
+                  <Badge className="mr-2 mb-2">VS Code</Badge>
+                  <Badge className="mr-2 mb-2">Cloudinary SDK</Badge>
+                  <Badge className="mr-2 mb-2">QR Code Libraries</Badge>
+                  <Badge className="mr-2 mb-2">PDF Generation</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-6">
+                <Brain className="text-secondary mb-4" size={40} />
+                <h3 className="font-semibold mb-4">Machine Learning</h3>
+                <div className="space-y-2">
+                  <Badge className="mr-2 mb-2">TensorFlow</Badge>
+                  <Badge className="mr-2 mb-2">PyTorch</Badge>
+                  <Badge className="mr-2 mb-2">Scikit-learn</Badge>
+                  <Badge className="mr-2 mb-2">Pandas</Badge>
+                  <Badge className="mr-2 mb-2">NumPy</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-center mb-8 text-balance">Specialized Skills</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="p-2 bg-primary/10 rounded-lg mr-3">
+                      <Code className="text-primary" size={24} />
+                    </div>
+                    <h4 className="font-semibold">Security & APIs</h4>
+                  </div>
+                  <div className="space-y-2">
+                    <Badge className="mr-2 mb-2">CSRF Protection</Badge>
+                    <Badge className="mr-2 mb-2">Stripe API</Badge>
+                    <Badge className="mr-2 mb-2">PayPal Integration</Badge>
+                    <Badge className="mr-2 mb-2">Third-party APIs</Badge>
+                    <Badge className="mr-2 mb-2">MailChimp API</Badge>
+                    <Badge className="mr-2 mb-2">Authentication Systems</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="p-2 bg-secondary/10 rounded-lg mr-3">
+                      <Database className="text-secondary" size={24} />
+                    </div>
+                    <h4 className="font-semibold">Data Management</h4>
+                  </div>
+                  <div className="space-y-2">
+                    <Badge className="mr-2 mb-2">Database Design</Badge>
+                    <Badge className="mr-2 mb-2">CSV Processing</Badge>
+                    <Badge className="mr-2 mb-2">XLSX Export</Badge>
+                    <Badge className="mr-2 mb-2">JSON APIs</Badge>
+                    <Badge className="mr-2 mb-2">QR Code Generation</Badge>
+                    <Badge className="mr-2 mb-2">PDF Conversion</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-center mb-12 text-balance">Web Development Services</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Globe className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Multi-language Websites</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Complete multi-language support for small websites with localization
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Users className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">User Authentication</h4>
+                  <p className="text-sm text-muted-foreground">Login/Registration systems with secure authentication</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <CheckCircle className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Payment Integration</h4>
+                  <p className="text-sm text-muted-foreground">Stripe, PayPal and other payment gateway integrations</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <ImageIcon className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Media Management</h4>
+                  <p className="text-sm text-muted-foreground">Cloudinary integration for advanced media handling</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Mail className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Email Marketing</h4>
+                  <p className="text-sm text-muted-foreground">MailChimp API integration and email automation</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Code className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Security Fixes</h4>
+                  <p className="text-sm text-muted-foreground">CSRF vulnerability fixes and security improvements</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Database className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Database Management</h4>
+                  <p className="text-sm text-muted-foreground">MySQL, MongoDB Atlas setup and optimization</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <ExternalLink className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">QR Code Systems</h4>
+                  <p className="text-sm text-muted-foreground">QR code generation and processing solutions</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <ExternalLink className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">PDF Conversion</h4>
+                  <p className="text-sm text-muted-foreground">HTML to PDF conversion and document generation</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Database className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Data Export/Import</h4>
+                  <p className="text-sm text-muted-foreground">CSV, XLSX, JSON data processing and conversion</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <MessageSquare className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Advertisement Banners</h4>
+                  <p className="text-sm text-muted-foreground">Custom banner creation and popup systems</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Code className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Design to Code</h4>
+                  <p className="text-sm text-muted-foreground">Website layouts from design mockups and wireframes</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Bot className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Telegram Bot Development</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Custom Telegram bots for automation and user interaction
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Brain className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">AI Integration & RAG</h4>
+                  <p className="text-sm text-muted-foreground">AI-powered solutions with knowledge base integration</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Zap className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Process Automation</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Social media posting, AI email responses, content generation
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Search className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">SEO Optimization</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Complete SEO setup and optimization for better search rankings
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <MessageSquare className="text-secondary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Content Generation</h4>
+                  <p className="text-sm text-muted-foreground">AI-powered content creation and automated responses</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Featured Projects</h2>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            <Card className="glass-card hover:scale-105 transition-all duration-300 group">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Multi-language E-commerce
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 text-pretty">
+                    Complete e-commerce platform with multi-language support, payment integration, and advanced user
+                    management.
+                  </p>
+                </div>
+
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <Badge variant="outline">React</Badge>
+                    <Badge variant="outline">Node.js</Badge>
+                    <Badge variant="outline">Stripe</Badge>
+                    <Badge variant="outline">i18n</Badge>
+                  </div>
+                </div>
+
+                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    Multi-language support
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    Payment processing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    User authentication
+                  </li>
+                </ul>
+
+                <div className="flex gap-2">
+                  <Button size="sm" className="flex-1">
+                    <ExternalLink size={14} className="mr-2" />
+                    Live Demo
+                  </Button>
+                  <Button size="sm" variant="outline">
+                    <Github size={14} />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover:scale-105 transition-all duration-300 group">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Payment Processing Dashboard
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 text-pretty">
+                    Advanced dashboard for payment processing with real-time analytics, transaction management, and
+                    reporting.
+                  </p>
+                </div>
+
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <Badge variant="outline">React</Badge>
+                    <Badge variant="outline">Stripe API</Badge>
+                    <Badge variant="outline">PayPal</Badge>
+                    <Badge variant="outline">Charts</Badge>
+                  </div>
+                </div>
+
+                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    Real-time analytics
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    Transaction management
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    Multi-gateway support
+                  </li>
+                </ul>
+
+                <div className="flex gap-2">
+                  <Button size="sm" className="flex-1">
+                    <ExternalLink size={14} className="mr-2" />
+                    Live Demo
+                  </Button>
+                  <Button size="sm" variant="outline">
+                    <Github size={14} />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover:scale-105 transition-all duration-300 group">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    QR Code Management System
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 text-pretty">
+                    Comprehensive QR code generation and management platform with analytics, batch processing, and API
+                    integration.
+                  </p>
+                </div>
+
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <Badge variant="outline">Vue.js</Badge>
+                    <Badge variant="outline">Node.js</Badge>
+                    <Badge variant="outline">QR Libraries</Badge>
+                    <Badge variant="outline">Analytics</Badge>
+                  </div>
+                </div>
+
+                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    Batch QR generation
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    Scan analytics
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    API integration
+                  </li>
+                </ul>
+
+                <div className="flex gap-2">
+                  <Button size="sm" className="flex-1">
+                    <ExternalLink size={14} className="mr-2" />
+                    Live Demo
+                  </Button>
+                  <Button size="sm" variant="outline">
+                    <Github size={14} />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover:scale-105 transition-all duration-300 group">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Marketing Banner Generator
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 text-pretty">
+                    AI-powered banner generation tool with template library, custom branding, and automated A/B testing
+                    capabilities.
+                  </p>
+                </div>
+
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <Badge variant="outline">React</Badge>
+                    <Badge variant="outline">Canvas API</Badge>
+                    <Badge variant="outline">AI</Badge>
+                    <Badge variant="outline">Templates</Badge>
+                  </div>
+                </div>
+
+                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    AI-powered generation
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    Template library
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary" />
+                    A/B testing
+                  </li>
+                </ul>
+
+                <div className="flex gap-2">
+                  <Button size="sm" className="flex-1">
+                    <ExternalLink size={14} className="mr-2" />
+                    Live Demo
+                  </Button>
+                  <Button size="sm" variant="outline">
+                    <Github size={14} />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Portfolio Gallery</h2>
+
+          {/* Category Filter */}
+          <div className="flex justify-center mb-12">
+            <div className="flex flex-wrap gap-2 p-2 glass-card rounded-lg">
+              {[
+                { id: "all", label: "All Projects" },
+                { id: "wordpress", label: "WordPress" },
+                { id: "plugin", label: "Plugin Development" },
+                { id: "website", label: "Website Development" },
+                { id: "payment", label: "Payment Integration" },
+                { id: "multilang", label: "Multi-language" },
+                { id: "dashboard", label: "Admin Panels" },
+                { id: "banners", label: "Advertisement" },
+                { id: "qr", label: "QR Systems" },
+                { id: "pdf", label: "PDF Export" },
+              ].map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    selectedCategory === category.id
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
+                  }`}
+                >
+                  <Filter size={14} className="mr-2 inline" />
+                  {category.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Gallery Images */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {filteredImages.map((image) => (
+              <div key={image.id} className="relative">
+                <img src={image.src || "/placeholder.svg"} alt={image.title} className="w-full h-auto rounded-lg" />
+                <div className="absolute bottom-2 left-2 bg-background/80 text-primary-foreground px-2 py-1 rounded">
+                  {image.title}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Professional Experience Section */}
+      <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Professional Experience</h2>
+
+          <div className="space-y-8">
+            <Card className="glass-card">
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary">Senior Full-Stack Developer</h3>
+                    <p className="text-lg text-muted-foreground">Tech Solutions Armenia</p>
+                  </div>
+                  <Badge variant="outline" className="mt-2 md:mt-0">
+                    2022 - Present
+                  </Badge>
+                </div>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Led development of 15+ web applications with 99.9% uptime</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Implemented payment systems processing $2M+ in transactions</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Reduced page load times by 60% through optimization techniques</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Mentored 5 junior developers and established coding standards</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card">
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary">Web Developer & ML Engineer</h3>
+                    <p className="text-lg text-muted-foreground">Digital Innovation Lab</p>
+                  </div>
+                  <Badge variant="outline" className="mt-2 md:mt-0">
+                    2020 - 2022
+                  </Badge>
+                </div>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Developed ML models achieving 95% accuracy in data classification</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Built responsive web applications serving 50K+ daily users</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Integrated AI solutions reducing manual processing by 80%</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Collaborated with cross-functional teams on 10+ projects</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card">
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary">Junior Web Developer</h3>
+                    <p className="text-lg text-muted-foreground">StartUp Hub Yerevan</p>
+                  </div>
+                  <Badge variant="outline" className="mt-2 md:mt-0">
+                    2019 - 2020
+                  </Badge>
+                </div>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Contributed to 8 successful product launches</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Improved code quality through testing and code reviews</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Learned modern frameworks and development best practices</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                    <span>Participated in agile development processes</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Let's Work Together Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance">Let's Work Together</h2>
+          <p className="text-xl text-muted-foreground mb-8 text-pretty">
+            Ready to bring your ideas to life? I specialize in creating modern, scalable web solutions that drive
+            results.
+          </p>
+          <p className="text-lg text-muted-foreground mb-12 text-pretty">
+            From full-stack development to AI integration, I offer comprehensive services to help your business grow.
+            Let's discuss how we can collaborate to build something amazing together.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Card className="glass-card">
+              <CardContent className="p-6 text-center">
+                <Code className="text-primary mb-4 mx-auto" size={40} />
+                <h3 className="font-semibold mb-2">Full-Stack Development</h3>
+                <p className="text-sm text-muted-foreground">Complete web solutions from frontend to backend</p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card">
+              <CardContent className="p-6 text-center">
+                <Brain className="text-secondary mb-4 mx-auto" size={40} />
+                <h3 className="font-semibold mb-2">AI Integration</h3>
+                <p className="text-sm text-muted-foreground">Smart automation and machine learning solutions</p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card">
+              <CardContent className="p-6 text-center">
+                <Zap className="text-primary mb-4 mx-auto" size={40} />
+                <h3 className="font-semibold mb-2">Performance Optimization</h3>
+                <p className="text-sm text-muted-foreground">Fast, scalable, and user-friendly applications</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Button
+            onClick={() => scrollToSection("contact")}
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+          >
+            Start Your Project
+          </Button>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Get In Touch</h2>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">Let's Start a Conversation</h3>
+              <p className="text-lg text-muted-foreground mb-8 text-pretty">
+                I'm always interested in new opportunities and exciting projects. Whether you have a specific idea in
+                mind or just want to explore possibilities, I'd love to hear from you.
+              </p>
+
+              <div className="space-y-6">
+                <Card className="glass-card">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <Mail className="text-primary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold">Email</h4>
+                        <p className="text-muted-foreground">arman@example.com</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="glass-card">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-secondary/10 rounded-lg">
+                        <Phone className="text-secondary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold">Phone</h4>
+                        <p className="text-muted-foreground">+374 77 123456</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="glass-card">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <MapPin className="text-primary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold">Location</h4>
+                        <p className="text-muted-foreground">Yerevan, Armenia</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            <Card className="glass-card">
+              <CardContent className="p-8">
+                <form onSubmit={handleFormSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                      required
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
+
+                  {submitStatus === "success" && <p className="text-center text-primary">Message sent successfully!</p>}
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-card/30 border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <p className="text-muted-foreground">© 2024 Arman Rafayelyan. All rights reserved.</p>
+              <p className="text-sm text-muted-foreground">Built with React, Next.js & Tailwind CSS</p>
+            </div>
+
+            <div className="flex items-center gap-6">
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                <Github size={20} />
+              </Button>
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                <Mail size={20} />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => scrollToSection("home")}
+                className="text-muted-foreground hover:text-primary"
+              >
+                Back to Top
+              </Button>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
