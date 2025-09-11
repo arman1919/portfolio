@@ -74,12 +74,25 @@ export default function Portfolio() {
   }
 
   const galleryImages = [
-    { id: 1, src: "/wordpress-fox-theme-homepage.jpg", category: "wordpress", title: "Fox Theme" },
-    { id: 2, src: "/wordpress-pages-builder-interface.jpg", category: "wordpress", title: "Pages Builder" },
-    { id: 3, src: "/wordpress-quiz-plugin-interface.jpg", category: "wordpress", title: "Quiz Plugin" },
-    { id: 4, src: "/wordpress-plugin-development-dashboard.jpg", category: "plugin", title: "Plugin Dashboard" },
-    { id: 5, src: "/modern-website-development-interface.jpg", category: "website", title: "Website Development" },
-    { id: 6, src: "/level-studio-website-homepage.jpg", category: "website", title: "Level Studio" },
+    { id: 1, src: "/portfolio-images/analytics-menu.png", category: "wordpress", title: "Analytics Menu" },
+    { id: 2, src: "/portfolio-images/analytic-tab.png", category: "wordpress", title: "Analytics Tab" },
+    { id: 3, src: "/portfolio-images/announcements-front.png", category: "wordpress", title: "Announcements Frontend Tab" },
+    { id: 4, src: "/portfolio-images/attachment-section.png", category: "wordpress", title: "Attachment Admin Panel" },
+    { id: 5, src: "/portfolio-images/color-palette.png", category: "wordpress", title: "Color Palette System" },
+    { id: 6, src: "/portfolio-images/coupon-admin.png", category: "payment", title: "Coupon Admin Panel" },
+    { id: 7, src: "/portfolio-images/coupon-front.png", category: "payment", title: "Coupon Frontend" },
+    { id: 8, src: "/portfolio-images/gamipress.png", category: "wordpress", title: "GamiPress Integration Admin Panel" },
+    { id: 9, src: "/portfolio-images/notifications.png", category: "wordpress", title: "Notifications System Frontend" },
+    { id: 10, src: "/portfolio-images/paymeny.png", category: "payment", title: "Payment Integration Admin Panel" },
+    { id: 11, src: "/portfolio-images/popup-1.png", category: "wordpress", title: "Popup Banner Frontend" },
+    { id: 12, src: "/portfolio-images/popup-demo-1.png", category: "website", title: "Popup Plugin Demo Landing Page" },
+    { id: 13, src: "/portfolio-images/popup-demo-2.png", category: "website", title: "Popup Plugin Free Demo Landing Page" },
+    { id: 14, src: "/portfolio-images/q-and-a-front.png", category: "wordpress", title: "Questions & Answers Frontend" },
+    { id: 15, src: "/portfolio-images/registration-login-1.png", category: "dashboard", title: "Login Form Admin Panel" },
+    { id: 16, src: "/portfolio-images/registration-login-2.png", category: "dashboard", title: "Registration Form Admin Panel" },
+    { id: 17, src: "/portfolio-images/schedule-course-section.png", category: "wordpress", title: "Schedule Course Admin Panel" },
+    { id: 18, src: "/portfolio-images/levelstudio-1.png", category: "website", title: "LevelStudio.am" },
+    { id: 19, src: "/portfolio-images/levelstudio-2.png", category: "website", title: "LevelStudio.am Calculator" },
   ]
 
   const filteredImages =
@@ -89,14 +102,28 @@ export default function Portfolio() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    setIsSubmitting(false)
-    setSubmitStatus("success")
-    setFormData({ name: "", email: "", message: "" })
-
-    setTimeout(() => setSubmitStatus("idle"), 3000)
+      if (response.ok) {
+        setSubmitStatus("success")
+        setFormData({ name: "", email: "", message: "" })
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+      setTimeout(() => setSubmitStatus("idle"), 3000)
+    }
   }
 
   return (
@@ -164,7 +191,7 @@ export default function Portfolio() {
                   className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
                     activeSection === item.id
                       ? "text-primary-foreground bg-primary border border-primary"
-                      : "text-slate-900 hover:text-slate-700 hover:bg-slate-100/20"
+                      : "hover:bg-slate-100/20"
                   }`}
                 >
                   {item.label}
@@ -213,11 +240,11 @@ export default function Portfolio() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Phone size={16} />
-              <span>+374 77 123456</span>
+              <span>+374 98 983797</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail size={16} />
-              <span>arman@example.com</span>
+              <span>arman.raf2001@gmail.com</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin size={16} />
@@ -236,63 +263,299 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">About Me</h2>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-lg text-muted-foreground mb-6 text-pretty">
-                I'm a passionate web developer and machine learning engineer with a strong foundation in both frontend
-                and backend technologies. My journey in tech has been driven by curiosity and a desire to create
-                meaningful solutions that make a difference.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 text-pretty">
-                With experience in modern web frameworks, cloud technologies, and ML algorithms, I bring a unique
-                perspective to every project. I believe in writing clean, maintainable code and staying up-to-date with
-                the latest industry trends.
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-6">
-                <Card className="glass-card">
-                  <CardContent className="p-6">
-                    <GraduationCap className="text-primary mb-4" size={32} />
-                    <h3 className="font-semibold mb-2">Education</h3>
-                    <p className="text-sm text-muted-foreground">Computer Science Degree</p>
-                    <p className="text-sm text-muted-foreground">Specialized in AI/ML</p>
-                  </CardContent>
-                </Card>
-
-                <Card className="glass-card">
-                  <CardContent className="p-6">
-                    <Languages className="text-secondary mb-4" size={32} />
-                    <h3 className="font-semibold mb-2">Languages</h3>
-                    <p className="text-sm text-muted-foreground">Armenian (Native)</p>
-                    <p className="text-sm text-muted-foreground">English (Fluent)</p>
-                  </CardContent>
-                </Card>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Left Column: Education & Professional Journey */}
+            <div className="space-y-8">
+              <div>
+                <p className="text-xl text-muted-foreground mb-6 text-pretty leading-relaxed">
+                  I'm a passionate web developer and machine learning engineer with a strong foundation in both frontend
+                  and backend technologies. My journey in tech has been driven by curiosity and a desire to create
+                  meaningful solutions that make a difference.
+                </p>
+                <p className="text-lg text-muted-foreground mb-8 text-pretty leading-relaxed">
+                  With experience in modern web frameworks, cloud technologies, and ML algorithms, I bring a unique
+                  perspective to every project. I believe in writing clean, maintainable code and staying up-to-date with
+                  the latest industry trends.
+                </p>
               </div>
-            </div>
 
-            <div className="space-y-6">
+              {/* Education Card */}
               <Card className="glass-card">
-                <CardContent className="p-6">
-                  <Users className="text-primary mb-4" size={32} />
-                  <h3 className="font-semibold mb-2">Soft Skills</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">Problem Solving</Badge>
-                    <Badge variant="secondary">Team Collaboration</Badge>
-                    <Badge variant="secondary">Communication</Badge>
-                    <Badge variant="secondary">Leadership</Badge>
-                    <Badge variant="secondary">Adaptability</Badge>
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-primary/10 rounded-xl mr-4">
+                      <GraduationCap className="text-primary" size={32} />
+                    </div>
+                    <h3 className="font-bold text-xl">Education</h3>
+                  </div>
+                  
+                  <div className="space-y-8">
+                    <div className="border-l-4 border-primary/40 pl-6 pb-6">
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="font-bold text-base text-primary">Picsart Academy</h4>
+                        <Badge variant="default" className="text-sm bg-primary/20 text-primary">Python Engineer</Badge>
+                      </div>
+                      <p className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">Technologies</p>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">Computer Architecture</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">Python</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">OOAD (OOP)</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">Essential Mathematics</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">Linux</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">Network Systems</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">C Language</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">AI Internship</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-primary/10 transition-colors">Algorithms</Badge>
+                      </div>
+                    </div>
+                    
+                    <div className="border-l-4 border-secondary/40 pl-6">
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="font-bold text-base text-secondary">Yerevan State University</h4>
+                        <Badge variant="default" className="text-sm bg-secondary/20 text-secondary">Informatics & Applied Math</Badge>
+                      </div>
+                      <p className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">Courses</p>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">Higher Mathematics</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">Algorithms</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">Discrete Mathematics</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">C++</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">Functional Mathematics</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">Analytics</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">Databases</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">Differential Equations</Badge>
+                        <Badge variant="outline" className="text-sm hover:bg-secondary/10 transition-colors">Physics</Badge>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
 
+              {/* Professional Journey Card */}
               <Card className="glass-card">
-                <CardContent className="p-6">
-                  <Award className="text-secondary mb-4" size={32} />
-                  <h3 className="font-semibold mb-2">Professional Journey</h3>
-                  <p className="text-sm text-muted-foreground text-pretty">
-                    From building my first website to developing complex ML systems, I've consistently pushed the
-                    boundaries of what's possible with technology. My experience spans startups to enterprise solutions.
-                  </p>
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-secondary/10 rounded-xl mr-4">
+                      <Award className="text-secondary" size={32} />
+                    </div>
+                    <h3 className="font-bold text-xl">Professional Journey</h3>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="border-l-4 border-primary/30 pl-6">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <span className="text-sm font-semibold text-primary">2023 - Present</span>
+                      </div>
+                      <h4 className="font-bold text-base mb-2">Full-Stack Developer</h4>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        Developing complex web applications with modern frameworks, integrating AI/ML solutions, and building scalable systems for various clients.
+                      </p>
+                    </div>
+                    
+                    <div className="border-l-4 border-secondary/30 pl-6">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <span className="text-sm font-semibold text-secondary">2022 - 2023</span>
+                      </div>
+                      <h4 className="font-bold text-base mb-2">Python Engineer Intern</h4>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        Gained hands-on experience in software development, machine learning algorithms, and system architecture at Picsart Academy.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Right Column: Skills & Languages */}
+            <div className="space-y-8">
+              {/* Technical Skills Card */}
+              <Card className="glass-card">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-primary/10 rounded-xl mr-4">
+                      <Code className="text-primary" size={32} />
+                    </div>
+                    <h3 className="font-bold text-xl">Technical Skills</h3>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        Programming Languages
+                      </h4>
+                      <div className="flex flex-wrap gap-2 mb-1">
+                        <Badge className="text-sm bg-primary/20 text-primary">Python</Badge>
+                        <Badge className="text-sm bg-primary/20 text-primary">C++</Badge>
+                        <Badge className="text-sm bg-primary/20 text-primary">C Language</Badge>
+                        <Badge className="text-sm bg-primary/20 text-primary">JavaScript</Badge>
+                        <Badge className="text-sm bg-primary/20 text-primary">TypeScript</Badge>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
+                        <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                        Web Development
+                      </h4>
+                      <div className="flex flex-wrap gap-2 mb-1">
+                        <Badge className="text-sm bg-secondary/20 text-secondary">React</Badge>
+                        <Badge className="text-sm bg-secondary/20 text-secondary">Next.js</Badge>
+                        <Badge className="text-sm bg-secondary/20 text-secondary">Node.js</Badge>
+                        <Badge className="text-sm bg-secondary/20 text-secondary">Tailwind CSS</Badge>
+                        <Badge className="text-sm bg-secondary/20 text-secondary">Vue.js</Badge>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        AI/ML & Data
+                      </h4>
+                      <div className="flex flex-wrap gap-2 mb-1">
+                        <Badge className="text-sm bg-primary/20 text-primary">Machine Learning</Badge>
+                        <Badge className="text-sm bg-primary/20 text-primary">Algorithms</Badge>
+                        <Badge className="text-sm bg-primary/20 text-primary">TensorFlow</Badge>
+                        <Badge className="text-sm bg-primary/20 text-primary">PyTorch</Badge>
+                        <Badge className="text-sm bg-primary/20 text-primary">Data Analytics</Badge>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
+                        <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                        Infrastructure & Tools
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge className="text-sm bg-secondary/20 text-secondary">Linux</Badge>
+                        <Badge className="text-sm bg-secondary/20 text-secondary">Network Systems</Badge>
+                        <Badge className="text-sm bg-secondary/20 text-secondary">Git</Badge>
+                        <Badge className="text-sm bg-secondary/20 text-secondary">Docker</Badge>
+                        <Badge className="text-sm bg-secondary/20 text-secondary">AWS</Badge>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Soft Skills Card */}
+              <Card className="glass-card">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-secondary/10 rounded-xl mr-4">
+                      <Users className="text-secondary" size={32} />
+                    </div>
+                    <h3 className="font-bold text-xl">Soft Skills</h3>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-base font-medium">Problem Solving</span>
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-base font-medium">Team Collaboration</span>
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-muted rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-base font-medium">Communication</span>
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-muted rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-base font-medium">Leadership</span>
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-muted rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-base font-medium">Adaptability</span>
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Languages Card */}
+              <Card className="glass-card">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-primary/10 rounded-xl mr-4">
+                      <Languages className="text-primary" size={32} />
+                    </div>
+                    <h3 className="font-bold text-xl">Languages</h3>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-base font-semibold">Armenian</span>
+                        <p className="text-sm text-muted-foreground">Native</p>
+                      </div>
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                        <div className="w-3 h-3 bg-primary rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-base font-semibold">English</span>
+                        <p className="text-sm text-muted-foreground">Fluent</p>
+                      </div>
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-muted rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-base font-semibold">Russian</span>
+                        <p className="text-sm text-muted-foreground">Fluent</p>
+                      </div>
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                        <div className="w-3 h-3 bg-muted rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -802,14 +1065,58 @@ export default function Portfolio() {
           {/* Gallery Images */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {filteredImages.map((image) => (
-              <div key={image.id} className="relative">
-                <img src={image.src || "/placeholder.svg"} alt={image.title} className="w-full h-auto rounded-lg" />
-                <div className="absolute bottom-2 left-2 bg-background/80 text-primary-foreground px-2 py-1 rounded">
-                  {image.title}
+              <div 
+                key={image.id} 
+                className="relative group cursor-pointer overflow-hidden rounded-lg bg-card shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img 
+                    src={image.src || "/placeholder.svg"} 
+                    alt={image.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                  />
+                </div>
+                
+                {/* Magnifying Glass Overlay */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
+                    <Search size={32} className="text-white" />
+                  </div>
+                </div>
+                
+                {/* Title Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                  <h3 className="text-white font-medium text-sm">{image.title}</h3>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Lightbox Modal */}
+          {selectedImage && (
+            <div 
+              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+              onClick={() => setSelectedImage(null)}
+            >
+              <div className="relative w-full h-full max-w-7xl overflow-auto">
+                <div className="min-h-full flex items-start justify-center py-8">
+                  <img 
+                    src={selectedImage} 
+                    alt="Portfolio Image" 
+                    className="max-w-full h-auto object-contain rounded-lg shadow-2xl"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                </div>
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="fixed top-4 right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-colors z-10 backdrop-blur-sm"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -989,7 +1296,7 @@ export default function Portfolio() {
                       </div>
                       <div>
                         <h4 className="font-semibold">Email</h4>
-                        <p className="text-muted-foreground">arman@example.com</p>
+                        <p className="text-muted-foreground">arman.raf2001@gmail.com</p>
                       </div>
                     </div>
                   </CardContent>
@@ -1003,7 +1310,7 @@ export default function Portfolio() {
                       </div>
                       <div>
                         <h4 className="font-semibold">Phone</h4>
-                        <p className="text-muted-foreground">+374 77 123456</p>
+                        <p className="text-muted-foreground">+374 98 983797</p>
                       </div>
                     </div>
                   </CardContent>
@@ -1079,6 +1386,7 @@ export default function Portfolio() {
                   </Button>
 
                   {submitStatus === "success" && <p className="text-center text-primary">Message sent successfully!</p>}
+                  {submitStatus === "error" && <p className="text-center text-destructive">Failed to send message. Please try again.</p>}
                 </form>
               </CardContent>
             </Card>
