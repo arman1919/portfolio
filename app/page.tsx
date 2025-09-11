@@ -31,6 +31,8 @@ import {
   Globe,
   Search,
   MessageSquare,
+  Monitor,
+  Settings,
 } from "lucide-react"
 
 export default function Portfolio() {
@@ -268,14 +270,9 @@ export default function Portfolio() {
             <div className="space-y-8">
               <div>
                 <p className="text-xl text-muted-foreground mb-6 text-pretty leading-relaxed">
-                  I'm a passionate web developer and machine learning engineer with a strong foundation in both frontend
-                  and backend technologies. My journey in tech has been driven by curiosity and a desire to create
-                  meaningful solutions that make a difference.
-                </p>
+                I am a fullstack web developer, creating modern, responsive landing pages and web applications that are both visually appealing and user-friendly. I handle the full development process, from interface design and frontend layout to server-side logic, databases, and cloud integration.                </p>
                 <p className="text-lg text-muted-foreground mb-8 text-pretty leading-relaxed">
-                  With experience in modern web frameworks, cloud technologies, and ML algorithms, I bring a unique
-                  perspective to every project. I believe in writing clean, maintainable code and staying up-to-date with
-                  the latest industry trends.
+                I also have experience with machine learning for data processing, allowing me to add intelligent features to web projects.
                 </p>
               </div>
 
@@ -293,7 +290,7 @@ export default function Portfolio() {
                     <div className="border-l-4 border-primary/40 pl-6 pb-6">
                       <div className="flex items-start justify-between mb-3">
                         <h4 className="font-bold text-base text-primary">Picsart Academy</h4>
-                        <Badge variant="default" className="text-sm bg-primary/20 text-primary">Python Engineer</Badge>
+                        <Badge variant="default" className="text-sm bg-primary/20">Python Engineer</Badge>
                       </div>
                       <p className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">Technologies</p>
                       <div className="flex flex-wrap gap-2">
@@ -312,7 +309,7 @@ export default function Portfolio() {
                     <div className="border-l-4 border-secondary/40 pl-6">
                       <div className="flex items-start justify-between mb-3">
                         <h4 className="font-bold text-base text-secondary">Yerevan State University</h4>
-                        <Badge variant="default" className="text-sm bg-secondary/20 text-secondary">Informatics & Applied Math</Badge>
+                        <Badge variant="default" className="text-sm bg-secondary/20">Informatics & Applied Math</Badge>
                       </div>
                       <p className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">Courses</p>
                       <div className="flex flex-wrap gap-2">
@@ -332,7 +329,7 @@ export default function Portfolio() {
               </Card>
 
               {/* Professional Journey Card */}
-              <Card className="glass-card">
+              {/* <Card className="glass-card">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
                     <div className="p-3 bg-secondary/10 rounded-xl mr-4">
@@ -365,13 +362,13 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
 
             {/* Right Column: Skills & Languages */}
             <div className="space-y-8">
               {/* Technical Skills Card */}
-              <Card className="glass-card">
+              {/* <Card className="glass-card">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
                     <div className="p-3 bg-primary/10 rounded-xl mr-4">
@@ -387,58 +384,77 @@ export default function Portfolio() {
                         Programming Languages
                       </h4>
                       <div className="flex flex-wrap gap-2 mb-1">
-                        <Badge className="text-sm bg-primary/20 text-primary">Python</Badge>
-                        <Badge className="text-sm bg-primary/20 text-primary">C++</Badge>
-                        <Badge className="text-sm bg-primary/20 text-primary">C Language</Badge>
-                        <Badge className="text-sm bg-primary/20 text-primary">JavaScript</Badge>
-                        <Badge className="text-sm bg-primary/20 text-primary">TypeScript</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">PHP</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">Java Script</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">Python</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">C++</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">C Language</Badge>
                       </div>
                     </div>
                     
                     <div>
                       <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
                         <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                        Web Development
+                        Web Development Frontend
                       </h4>
                       <div className="flex flex-wrap gap-2 mb-1">
-                        <Badge className="text-sm bg-secondary/20 text-secondary">React</Badge>
-                        <Badge className="text-sm bg-secondary/20 text-secondary">Next.js</Badge>
-                        <Badge className="text-sm bg-secondary/20 text-secondary">Node.js</Badge>
-                        <Badge className="text-sm bg-secondary/20 text-secondary">Tailwind CSS</Badge>
-                        <Badge className="text-sm bg-secondary/20 text-secondary">Vue.js</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">React</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">Next.js</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">Tailwind CSS</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">Bootstrap</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">HTML</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">CSS</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">jQuery</Badge>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        Web Development Backend
+                      </h4>
+                      <div className="flex flex-wrap gap-2 mb-1">
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">Node.js</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">AJAX</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">jQuery</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">REST</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">MongoDB (Atlas)</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">MySQL</Badge>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
+                        <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                        AI/ML & Data
+                      </h4>
+                      <div className="flex flex-wrap gap-2 mb-1">
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">Machine Learning</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">Algorithms</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">LLM</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">RAG</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">PyTorch</Badge>
+                        <Badge className="text-sm bg-secondary/30 text-white border border-secondary/50">Data Analytics</Badge>
                       </div>
                     </div>
                     
                     <div>
                       <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
                         <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        AI/ML & Data
-                      </h4>
-                      <div className="flex flex-wrap gap-2 mb-1">
-                        <Badge className="text-sm bg-primary/20 text-primary">Machine Learning</Badge>
-                        <Badge className="text-sm bg-primary/20 text-primary">Algorithms</Badge>
-                        <Badge className="text-sm bg-primary/20 text-primary">TensorFlow</Badge>
-                        <Badge className="text-sm bg-primary/20 text-primary">PyTorch</Badge>
-                        <Badge className="text-sm bg-primary/20 text-primary">Data Analytics</Badge>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold text-base mb-3 flex items-center gap-2">
-                        <div className="w-2 h-2 bg-secondary rounded-full"></div>
                         Infrastructure & Tools
                       </h4>
                       <div className="flex flex-wrap gap-2">
-                        <Badge className="text-sm bg-secondary/20 text-secondary">Linux</Badge>
-                        <Badge className="text-sm bg-secondary/20 text-secondary">Network Systems</Badge>
-                        <Badge className="text-sm bg-secondary/20 text-secondary">Git</Badge>
-                        <Badge className="text-sm bg-secondary/20 text-secondary">Docker</Badge>
-                        <Badge className="text-sm bg-secondary/20 text-secondary">AWS</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">Wordpress</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">WooCommerce</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">Linux</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">Git</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">Docker</Badge>
+                        <Badge className="text-sm bg-primary/30 text-white border border-primary/50">Cloudinary</Badge>
                       </div>
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
 
               {/* Soft Skills Card */}
               <Card className="glass-card">
@@ -568,17 +584,17 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Skills & Technologies</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             <Card className="glass-card hover:scale-105 transition-transform duration-300">
               <CardContent className="p-6">
                 <Code className="text-primary mb-4" size={40} />
-                <h3 className="font-semibold mb-4">Frontend Technologies</h3>
+                <h3 className="font-semibold mb-4">Programming Languages</h3>
                 <div className="space-y-2">
-                  <Badge className="mr-2 mb-2">React</Badge>
-                  <Badge className="mr-2 mb-2">Next.js</Badge>
-                  <Badge className="mr-2 mb-2">TypeScript</Badge>
-                  <Badge className="mr-2 mb-2">Tailwind CSS</Badge>
-                  <Badge className="mr-2 mb-2">Vue.js</Badge>
+                  <Badge className="mr-2 mb-2">PHP</Badge>
+                  <Badge className="mr-2 mb-2">JavaScript</Badge>
+                  <Badge className="mr-2 mb-2">Python</Badge>
+                  <Badge className="mr-2 mb-2">C++</Badge>
+                  <Badge className="mr-2 mb-2">C Language</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -586,15 +602,29 @@ export default function Portfolio() {
             <Card className="glass-card hover:scale-105 transition-transform duration-300">
               <CardContent className="p-6">
                 <Database className="text-secondary mb-4" size={40} />
-                <h3 className="font-semibold mb-4">Backend Development</h3>
+                <h3 className="font-semibold mb-4">Frontend</h3>
+                <div className="space-y-2">
+                  <Badge className="mr-2 mb-2">React</Badge>
+                  <Badge className="mr-2 mb-2">Next.js</Badge>
+                  <Badge className="mr-2 mb-2">Tailwind CSS</Badge>
+                  <Badge className="mr-2 mb-2">Bootstrap</Badge>
+                  <Badge className="mr-2 mb-2">HTML</Badge>
+                  <Badge className="mr-2 mb-2">CSS</Badge>
+                  <Badge className="mr-2 mb-2">jQuery</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-6">
+                <Database className="text-primary mb-4" size={40} />
+                <h3 className="font-semibold mb-4">Backend</h3>
                 <div className="space-y-2">
                   <Badge className="mr-2 mb-2">Node.js</Badge>
-                  <Badge className="mr-2 mb-2">Python</Badge>
-                  <Badge className="mr-2 mb-2">PostgreSQL</Badge>
-                  <Badge className="mr-2 mb-2">MongoDB</Badge>
-                  <Badge className="mr-2 mb-2">REST APIs</Badge>
+                  <Badge className="mr-2 mb-2">AJAX</Badge>
+                  <Badge className="mr-2 mb-2">REST API</Badge>
+                  <Badge className="mr-2 mb-2">MongoDB (Atlas)</Badge>
                   <Badge className="mr-2 mb-2">MySQL</Badge>
-                  <Badge className="mr-2 mb-2">MongoDB Atlas</Badge>
                   <Badge className="mr-2 mb-2">Payment APIs</Badge>
                 </div>
               </CardContent>
@@ -602,31 +632,32 @@ export default function Portfolio() {
 
             <Card className="glass-card hover:scale-105 transition-transform duration-300">
               <CardContent className="p-6">
-                <Wrench className="text-primary mb-4" size={40} />
-                <h3 className="font-semibold mb-4">Tools & Environment</h3>
+                <Brain className="text-secondary mb-4" size={40} />
+                <h3 className="font-semibold mb-4">AI/ML & Data</h3>
                 <div className="space-y-2">
-                  <Badge className="mr-2 mb-2">Git</Badge>
-                  <Badge className="mr-2 mb-2">Docker</Badge>
-                  <Badge className="mr-2 mb-2">AWS</Badge>
-                  <Badge className="mr-2 mb-2">Vercel</Badge>
-                  <Badge className="mr-2 mb-2">VS Code</Badge>
-                  <Badge className="mr-2 mb-2">Cloudinary SDK</Badge>
-                  <Badge className="mr-2 mb-2">QR Code Libraries</Badge>
-                  <Badge className="mr-2 mb-2">PDF Generation</Badge>
+                  <Badge className="mr-2 mb-2">Machine Learning</Badge>
+                  <Badge className="mr-2 mb-2">Algorithms</Badge>
+                  <Badge className="mr-2 mb-2">LLM</Badge>
+                  <Badge className="mr-2 mb-2">RAG</Badge>
+                  <Badge className="mr-2 mb-2">PyTorch</Badge>
+                  <Badge className="mr-2 mb-2">Data Analytics</Badge>
+                  <Badge className="mr-2 mb-2">Pandas</Badge>
+                  <Badge className="mr-2 mb-2">NumPy</Badge>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="glass-card hover:scale-105 transition-transform duration-300">
               <CardContent className="p-6">
-                <Brain className="text-secondary mb-4" size={40} />
-                <h3 className="font-semibold mb-4">Machine Learning</h3>
+                <Wrench className="text-primary mb-4" size={40} />
+                <h3 className="font-semibold mb-4">Infrastructure & Tools</h3>
                 <div className="space-y-2">
-                  <Badge className="mr-2 mb-2">TensorFlow</Badge>
-                  <Badge className="mr-2 mb-2">PyTorch</Badge>
-                  <Badge className="mr-2 mb-2">Scikit-learn</Badge>
-                  <Badge className="mr-2 mb-2">Pandas</Badge>
-                  <Badge className="mr-2 mb-2">NumPy</Badge>
+                  <Badge className="mr-2 mb-2">WordPress</Badge>
+                  <Badge className="mr-2 mb-2">WooCommerce</Badge>
+                  <Badge className="mr-2 mb-2">Linux</Badge>
+                  <Badge className="mr-2 mb-2">Git</Badge>
+                  <Badge className="mr-2 mb-2">Docker</Badge>
+                  <Badge className="mr-2 mb-2">Cloudinary</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -650,6 +681,10 @@ export default function Portfolio() {
                     <Badge className="mr-2 mb-2">Third-party APIs</Badge>
                     <Badge className="mr-2 mb-2">MailChimp API</Badge>
                     <Badge className="mr-2 mb-2">Authentication Systems</Badge>
+                    <Badge className="mr-2 mb-2">Zapier Webhooks</Badge>
+                    <Badge className="mr-2 mb-2">ActiveCampaign</Badge>
+                    <Badge className="mr-2 mb-2">Google Sheets Integration</Badge>
+                    <Badge className="mr-2 mb-2">GetResponse API</Badge>
                   </div>
                 </CardContent>
               </Card>
@@ -669,6 +704,8 @@ export default function Portfolio() {
                     <Badge className="mr-2 mb-2">JSON APIs</Badge>
                     <Badge className="mr-2 mb-2">QR Code Generation</Badge>
                     <Badge className="mr-2 mb-2">PDF Conversion</Badge>
+                    <Badge className="mr-2 mb-2">Data Migration/Backup</Badge>
+                    <Badge className="mr-2 mb-2">Caching</Badge>
                   </div>
                 </CardContent>
               </Card>
@@ -678,6 +715,35 @@ export default function Portfolio() {
           <div className="mt-16">
             <h3 className="text-2xl font-bold text-center mb-12 text-balance">Web Development Services</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Monitor className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">Landing Page Development</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Design and build modern, responsive, and user-friendly landing pages
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Brain className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">AI Integration & RAG</h4>
+                  <p className="text-sm text-muted-foreground">AI-powered solutions with knowledge base integration</p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <Settings className="text-primary mb-4" size={32} />
+                  <h4 className="font-semibold mb-2">WordPress Plugin Development</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Building and extending WordPress plugins with custom features and enhanced functionality
+                  </p>
+                </CardContent>
+              </Card>
+
               <Card className="glass-card hover:scale-105 transition-transform duration-300">
                 <CardContent className="p-6">
                   <Globe className="text-primary mb-4" size={32} />
@@ -716,7 +782,7 @@ export default function Portfolio() {
                 <CardContent className="p-6">
                   <Mail className="text-primary mb-4" size={32} />
                   <h4 className="font-semibold mb-2">Email Marketing</h4>
-                  <p className="text-sm text-muted-foreground">MailChimp API integration and email automation</p>
+                  <p className="text-sm text-muted-foreground">MailChimp and other email marketing system integrations with automation</p>
                 </CardContent>
               </Card>
 
@@ -788,18 +854,10 @@ export default function Portfolio() {
 
               <Card className="glass-card hover:scale-105 transition-transform duration-300">
                 <CardContent className="p-6">
-                  <Brain className="text-primary mb-4" size={32} />
-                  <h4 className="font-semibold mb-2">AI Integration & RAG</h4>
-                  <p className="text-sm text-muted-foreground">AI-powered solutions with knowledge base integration</p>
-                </CardContent>
-              </Card>
-
-              <Card className="glass-card hover:scale-105 transition-transform duration-300">
-                <CardContent className="p-6">
                   <Zap className="text-secondary mb-4" size={32} />
-                  <h4 className="font-semibold mb-2">Process Automation</h4>
+                  <h4 className="font-semibold mb-2">Content & Process Automation</h4>
                   <p className="text-sm text-muted-foreground">
-                    Social media posting, AI email responses, content generation
+                    AI-powered content creation, automated responses, social media posting
                   </p>
                 </CardContent>
               </Card>
@@ -811,14 +869,6 @@ export default function Portfolio() {
                   <p className="text-sm text-muted-foreground">
                     Complete SEO setup and optimization for better search rankings
                   </p>
-                </CardContent>
-              </Card>
-
-              <Card className="glass-card hover:scale-105 transition-transform duration-300">
-                <CardContent className="p-6">
-                  <MessageSquare className="text-secondary mb-4" size={32} />
-                  <h4 className="font-semibold mb-2">Content Generation</h4>
-                  <p className="text-sm text-muted-foreground">AI-powered content creation and automated responses</p>
                 </CardContent>
               </Card>
             </div>
