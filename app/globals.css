@@ -4,75 +4,75 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match dark portfolio theme */
-  --background: #1e293b;
-  --foreground: #ffffff;
-  --card: #0f172a;
-  --card-foreground: #ffffff;
-  --popover: rgba(255, 255, 255, 0.1);
-  --popover-foreground: #ffffff;
-  --primary: #0ea5e9;
-  --primary-foreground: #ffffff;
-  --secondary: #9333ea;
-  --secondary-foreground: #ffffff;
-  --muted: #64748b;
-  --muted-foreground: #cbd5e1;
-  --accent: #0ea5e9;
-  --accent-foreground: #ffffff;
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.2);
-  --input: rgba(255, 255, 255, 0.1);
-  --ring: rgba(255, 255, 255, 0.3);
-  --chart-1: #0ea5e9;
-  --chart-2: #9333ea;
-  --chart-3: #f97316;
-  --chart-4: #3b82f6;
-  --chart-5: #22c55e;
+  /* Обновленная более темная цветовая схема для лучшей читаемости */
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: rgba(30, 41, 59, 0.9);
+  --popover-foreground: #f8fafc;
+  --primary: #1e40af; /* Более темный синий */
+  --primary-foreground: #f8fafc;
+  --secondary: #7c3aed; /* Более темный фиолетовый */
+  --secondary-foreground: #f8fafc;
+  --muted: #475569;
+  --muted-foreground: #e2e8f0;
+  --accent: #1e40af;
+  --accent-foreground: #f8fafc;
+  --destructive: #b91c1c;
+  --destructive-foreground: #f8fafc;
+  --border: rgba(148, 163, 184, 0.2);
+  --input: rgba(30, 41, 59, 0.8);
+  --ring: rgba(30, 64, 175, 0.4);
+  --chart-1: #2563eb;
+  --chart-2: #7c3aed;
+  --chart-3: #ea580c;
+  --chart-4: #2563eb;
+  --chart-5: #16a34a;
   --radius: 0.5rem;
   --sidebar: #0f172a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #0ea5e9;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #9333ea;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.2);
-  --sidebar-ring: rgba(255, 255, 255, 0.3);
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #1e40af;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #7c3aed;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: rgba(148, 163, 184, 0.2);
+  --sidebar-ring: rgba(30, 64, 175, 0.4);
 }
 
 .dark {
-  --background: #1e293b;
-  --foreground: #ffffff;
-  --card: #0f172a;
-  --card-foreground: #ffffff;
-  --popover: rgba(255, 255, 255, 0.1);
-  --popover-foreground: #ffffff;
-  --primary: #0ea5e9;
-  --primary-foreground: #ffffff;
-  --secondary: #9333ea;
-  --secondary-foreground: #ffffff;
-  --muted: #64748b;
-  --muted-foreground: #cbd5e1;
-  --accent: #0ea5e9;
-  --accent-foreground: #ffffff;
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.2);
-  --input: rgba(255, 255, 255, 0.1);
-  --ring: rgba(255, 255, 255, 0.3);
-  --chart-1: #0ea5e9;
-  --chart-2: #9333ea;
-  --chart-3: #f97316;
-  --chart-4: #3b82f6;
-  --chart-5: #22c55e;
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: rgba(30, 41, 59, 0.9);
+  --popover-foreground: #f8fafc;
+  --primary: #1e40af;
+  --primary-foreground: #f8fafc;
+  --secondary: #7c3aed;
+  --secondary-foreground: #f8fafc;
+  --muted: #475569;
+  --muted-foreground: #e2e8f0;
+  --accent: #1e40af;
+  --accent-foreground: #f8fafc;
+  --destructive: #b91c1c;
+  --destructive-foreground: #f8fafc;
+  --border: rgba(148, 163, 184, 0.2);
+  --input: rgba(30, 41, 59, 0.8);
+  --ring: rgba(30, 64, 175, 0.4);
+  --chart-1: #2563eb;
+  --chart-2: #7c3aed;
+  --chart-3: #ea580c;
+  --chart-4: #2563eb;
+  --chart-5: #16a34a;
   --sidebar: #0f172a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #0ea5e9;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #9333ea;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.2);
-  --sidebar-ring: rgba(255, 255, 255, 0.3);
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #1e40af;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #7c3aed;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: rgba(148, 163, 184, 0.2);
+  --sidebar-ring: rgba(30, 64, 175, 0.4);
 }
 
 @theme inline {
@@ -124,21 +124,35 @@
     @apply bg-background text-foreground;
   }
 
-  /* Added smooth scrolling for navigation */
+  /* Плавная прокрутка для навигации */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Added glassmorphism utility classes */
+  /* Утилиты для эффекта стекла с улучшенной читаемостью */
   .glass {
     backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
   }
 
   .glass-card {
     backdrop-filter: blur(16px);
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+  
+  /* Дополнительные классы для лучшего контраста текста */
+  .text-high-contrast {
+    color: #f8fafc;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  
+  .bg-primary-muted {
+    background-color: rgba(30, 64, 175, 0.1);
+  }
+  
+  .bg-primary-soft {
+    background-color: rgba(30, 64, 175, 0.2);
   }
 }

@@ -127,7 +127,7 @@ export default function Portfolio() {
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       activeSection === item.id
                         ? "text-primary-foreground bg-primary border border-primary"
-                        : "text-slate-900 hover:text-slate-700 hover:bg-slate-100/20"
+                        : "hover:bg-slate-100/20"
                     }`}
                   >
                     {item.label}
