@@ -882,197 +882,226 @@ export default function Portfolio() {
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Featured Projects</h2>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="glass-card hover:scale-105 transition-all duration-300 group">
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    Multi-language E-commerce
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 text-pretty">
-                    Complete e-commerce platform with multi-language support, payment integration, and advanced user
-                    management.
-                  </p>
+          <Card className="glass-card hover:scale-105 transition-all duration-300 group">
+            <CardContent className="p-6">
+              <div className="mb-4">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                  DROPIC – Photo Album Manager
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 text-pretty">
+                  Web application for managing public photo albums with user authentication, 
+                  cloud-based uploads, and sharing via public links or QR codes. Built with a fully responsive design 
+                  and scalable serverless architecture.
+                </p>
+              </div>
+
+              <div className="mb-4">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="outline">Next.js 14</Badge>
+                  <Badge variant="outline">TypeScript</Badge>
+                  <Badge variant="outline">MongoDB Atlas</Badge>
+                  <Badge variant="outline">Cloudinary</Badge>
+                  <Badge variant="outline">JWT</Badge>
+                  <Badge variant="outline">Vercel</Badge>
                 </div>
+              </div>
 
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <Badge variant="outline">React</Badge>
-                    <Badge variant="outline">Node.js</Badge>
-                    <Badge variant="outline">Stripe</Badge>
-                    <Badge variant="outline">i18n</Badge>
-                  </div>
-                </div>
+              <ul className="text-sm text-muted-foreground mb-6 space-y-1">
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  User authentication
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Cloud-based image uploads
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Album sharing via public links & QR codes
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Fully responsive UI
+                </li>
+              </ul>
 
-                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    Multi-language support
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    Payment processing
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    User authentication
-                  </li>
-                </ul>
-
-                <div className="flex gap-2">
-                  <Button size="sm" className="flex-1">
+              <div className="flex gap-2">
+                <Button size="sm" asChild className="flex-1">
+                  <a href="https://dropic-sable.vercel.app" target="_blank" rel="noopener noreferrer">
                     <ExternalLink size={14} className="mr-2" />
                     Live Demo
-                  </Button>
-                  <Button size="sm" variant="outline">
-                    <Github size={14} />
-                  </Button>
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+
+          <Card className="glass-card hover:scale-105 transition-all duration-300 group">
+            <CardContent className="p-6">
+              <div className="mb-4">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                  Demo Website – PopupBox Plugin Pro
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 text-pretty">
+                  A showcase website built to demonstrate PopupBox Plugin Pro for WordPress. 
+                  Features clean modern design, responsive layout, interactive pricing tables, 
+                  testimonials, FAQ section, and live popup demos for subscriptions and downloads.
+                </p>
+              </div>
+
+              <div className="mb-4">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="outline">Wordpress</Badge>
+                  <Badge variant="outline">JavaScript</Badge>
+                  <Badge variant="outline">PHP</Badge>
+                  <Badge variant="outline">HTML</Badge>
+                  <Badge variant="outline">CSS</Badge>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
 
-            <Card className="glass-card hover:scale-105 transition-all duration-300 group">
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    Payment Processing Dashboard
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 text-pretty">
-                    Advanced dashboard for payment processing with real-time analytics, transaction management, and
-                    reporting.
-                  </p>
+              <ul className="text-sm text-muted-foreground mb-6 space-y-1">
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Responsive multi-section landing page
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Interactive pricing tables & plan switcher
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Testimonials and FAQ sections
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Live popup demo integration
+                </li>
+              </ul>
+
+              <div className="flex gap-2">
+                <Button size="sm" asChild className="flex-1">
+                  <a href="https://demo.popup-plugin.com/" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink size={14} className="mr-2" />
+                    Live Site
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+
+          <Card className="glass-card hover:scale-105 transition-all duration-300 group">
+            <CardContent className="p-6">
+              <div className="mb-4">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                  Demo Website – PopupBox Plugin Free
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 text-pretty">
+                  A demo page showcasing the free version of the PopupBox WordPress plugin. 
+                  Designed to demonstrate popup features like subscription forms, countdown timers, and coupon offers 
+                  to increase user engagement and conversions.
+                </p>
+              </div>
+
+              <div className="mb-4">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="outline">WordPress</Badge>
+                  <Badge variant="outline">JavaScript</Badge>
+                  <Badge variant="outline">PHP</Badge>
+                  <Badge variant="outline">HTML</Badge>
+                  <Badge variant="outline">CSS</Badge>
                 </div>
+              </div>
 
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <Badge variant="outline">React</Badge>
-                    <Badge variant="outline">Stripe API</Badge>
-                    <Badge variant="outline">PayPal</Badge>
-                    <Badge variant="outline">Charts</Badge>
-                  </div>
-                </div>
+              <ul className="text-sm text-muted-foreground mb-6 space-y-1">
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Subscription popups with forms
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Countdown timers & coupon popups
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Interactive popup demos
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Fully responsive demo page
+                </li>
+              </ul>
 
-                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    Real-time analytics
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    Transaction management
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    Multi-gateway support
-                  </li>
-                </ul>
-
-                <div className="flex gap-2">
-                  <Button size="sm" className="flex-1">
+              <div className="flex gap-2">
+                <Button size="sm" asChild className="flex-1">
+                  <a 
+                    href="https://demo.popup-plugin.com/wordpress-popup-plugin-free-demo/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink size={14} className="mr-2" />
                     Live Demo
-                  </Button>
-                  <Button size="sm" variant="outline">
-                    <Github size={14} />
-                  </Button>
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="glass-card hover:scale-105 transition-all duration-300 group">
+            <CardContent className="p-6">
+              <div className="mb-4">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                 Level Studio - Marketing Studio Website
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 text-pretty">
+                  Minimalist and functional design for a marketing and photo-video studio in Yerevan. 
+                  Focused on intuitive navigation, visual portfolio presentation, and responsive layout 
+                  to engage business clients effectively.
+                </p>
+              </div>
+
+              <div className="mb-4">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="outline">UI/UX Design</Badge>
+                  <Badge variant="outline">Responsive Layout</Badge>
+                  <Badge variant="outline">Portfolio Showcase</Badge>
+                  <Badge variant="outline">JS HTML/CSS</Badge>
+                  <Badge variant="outline">EmailJS</Badge>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
 
-            <Card className="glass-card hover:scale-105 transition-all duration-300 group">
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    QR Code Management System
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 text-pretty">
-                    Comprehensive QR code generation and management platform with analytics, batch processing, and API
-                    integration.
-                  </p>
-                </div>
+              <ul className="text-sm text-muted-foreground mb-6 space-y-1">
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Intuitive navigation and smooth scrolling
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Emphasis on portfolio visuals and multimedia
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Mobile-first, fully responsive design
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-primary" />
+                  Minimalist aesthetic with professional accents
+                </li>
+              </ul>
 
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <Badge variant="outline">Vue.js</Badge>
-                    <Badge variant="outline">Node.js</Badge>
-                    <Badge variant="outline">QR Libraries</Badge>
-                    <Badge variant="outline">Analytics</Badge>
-                  </div>
-                </div>
-
-                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    Batch QR generation
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    Scan analytics
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    API integration
-                  </li>
-                </ul>
-
-                <div className="flex gap-2">
-                  <Button size="sm" className="flex-1">
+              <div className="flex gap-2">
+                <Button size="sm" asChild className="flex-1">
+                  <a href="https://levelstudio.am/" target="_blank" rel="noopener noreferrer">
                     <ExternalLink size={14} className="mr-2" />
-                    Live Demo
-                  </Button>
-                  <Button size="sm" variant="outline">
-                    <Github size={14} />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                    Live Site
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
 
-            <Card className="glass-card hover:scale-105 transition-all duration-300 group">
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    Marketing Banner Generator
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 text-pretty">
-                    AI-powered banner generation tool with template library, custom branding, and automated A/B testing
-                    capabilities.
-                  </p>
-                </div>
 
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <Badge variant="outline">React</Badge>
-                    <Badge variant="outline">Canvas API</Badge>
-                    <Badge variant="outline">AI</Badge>
-                    <Badge variant="outline">Templates</Badge>
-                  </div>
-                </div>
-
-                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    AI-powered generation
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    Template library
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary" />
-                    A/B testing
-                  </li>
-                </ul>
-
-                <div className="flex gap-2">
-                  <Button size="sm" className="flex-1">
-                    <ExternalLink size={14} className="mr-2" />
-                    Live Demo
-                  </Button>
-                  <Button size="sm" variant="outline">
-                    <Github size={14} />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
