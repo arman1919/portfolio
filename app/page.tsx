@@ -86,7 +86,7 @@ export default function Portfolio() {
     { id: 8, src: "/portfolio-images/gamipress.png", category: "wordpress", title: "GamiPress Integration Admin Panel" },
     { id: 9, src: "/portfolio-images/notifications.png", category: "wordpress", title: "Notifications System Frontend" },
     { id: 10, src: "/portfolio-images/paymeny.png", category: "payment", title: "Payment Integration Admin Panel" },
-    { id: 11, src: "/portfolio-images/popup-1.png", category: "wordpress", title: "Popup Banner Frontend" },
+    { id: 11, src: "/portfolio-images/popup-1.png", category: "banners", title: "Popup Plugin Frontend" },
     { id: 12, src: "/portfolio-images/popup-demo-1.png", category: "website", title: "Popup Plugin Demo Landing Page" },
     { id: 13, src: "/portfolio-images/popup-demo-2.png", category: "website", title: "Popup Plugin Free Demo Landing Page" },
     { id: 14, src: "/portfolio-images/q-and-a-front.png", category: "wordpress", title: "Questions & Answers Frontend" },
@@ -95,6 +95,8 @@ export default function Portfolio() {
     { id: 17, src: "/portfolio-images/schedule-course-section.png", category: "wordpress", title: "Schedule Course Admin Panel" },
     { id: 18, src: "/portfolio-images/levelstudio-1.png", category: "website", title: "LevelStudio.am" },
     { id: 19, src: "/portfolio-images/levelstudio-2.png", category: "website", title: "LevelStudio.am Calculator" },
+    { id: 20, src: "/portfolio-images/popup-2.png", category: "banners", title: "Plugin Sale Popup" },
+    { id: 21, src: "/portfolio-images/banner-1.png", category: "banners", title: "Banner Admin Panel" },
   ]
 
   const filteredImages =
@@ -1119,11 +1121,8 @@ export default function Portfolio() {
                 { id: "plugin", label: "Plugin Development" },
                 { id: "website", label: "Website Development" },
                 { id: "payment", label: "Payment Integration" },
-                { id: "multilang", label: "Multi-language" },
                 { id: "dashboard", label: "Admin Panels" },
                 { id: "banners", label: "Advertisement" },
-                { id: "qr", label: "QR Systems" },
-                { id: "pdf", label: "PDF Export" },
               ].map((category) => (
                 <button
                   key={category.id}
@@ -1175,23 +1174,23 @@ export default function Portfolio() {
           {/* Lightbox Modal */}
           {selectedImage && (
             <div 
-              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4"
               onClick={() => setSelectedImage(null)}
             >
-              <div className="relative w-full h-full max-w-7xl overflow-auto">
-                <div className="min-h-full flex items-start justify-center py-8">
+              <div className="relative w-full h-full max-w-7xl overflow-auto flex items-center justify-center">
+                <div className="w-full max-h-full flex items-center justify-center p-4">
                   <img 
                     src={selectedImage} 
                     alt="Portfolio Image" 
-                    className="max-w-full h-auto object-contain rounded-lg shadow-2xl"
+                    className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
                     onClick={(e) => e.stopPropagation()}
                   />
                 </div>
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="fixed top-4 right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-colors z-10 backdrop-blur-sm"
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-colors z-10 backdrop-blur-sm"
                 >
-                  <X size={24} />
+                  <X size={20} className="sm:w-6 sm:h-6" />
                 </button>
               </div>
             </div>
