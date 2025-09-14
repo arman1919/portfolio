@@ -33,6 +33,8 @@ import {
   MessageSquare,
   Monitor,
   Settings,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react"
 
 export default function Portfolio() {
@@ -43,6 +45,8 @@ export default function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,10 +101,87 @@ export default function Portfolio() {
     { id: 19, src: "/portfolio-images/levelstudio-2.png", category: "website", title: "LevelStudio.am Calculator" },
     { id: 20, src: "/portfolio-images/popup-2.png", category: "banners", title: "Plugin Sale Popup" },
     { id: 21, src: "/portfolio-images/banner-1.png", category: "banners", title: "Banner Admin Panel" },
+    { id: 22, src: "/portfolio-images/dropic-1.png", category: "website", title: "Dropic - Online Photo Album Landing Page" },
+    { id: 23, src: "/portfolio-images/dropic-2.png", category: "website", title: "Dropic - Edit Album Page" },
+    { id: 24, src: "/portfolio-images/dropic-3.png", category: "website", title: "Dropic - Frontend page" },
   ]
 
   const filteredImages =
     selectedCategory === "all" ? galleryImages : galleryImages.filter((img) => img.category === selectedCategory)
+
+  const getCurrentImageIndex = () => {
+    return filteredImages.findIndex(img => img.src === selectedImage)
+  }
+
+  const navigateImage = (direction: 'prev' | 'next') => {
+    const currentIndex = getCurrentImageIndex()
+    if (currentIndex === -1) return
+
+    let newIndex
+    if (direction === 'prev') {
+      newIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1
+    } else {
+      newIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1
+    }
+    
+    setSelectedImage(filteredImages[newIndex].src)
+  }
+
+  const handleKeyNavigation = (e: KeyboardEvent) => {
+    if (!selectedImage) return
+    
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault()
+      navigateImage('prev')
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault()
+      navigateImage('next')
+    } else if (e.key === 'Escape') {
+      e.preventDefault()
+      setSelectedImage(null)
+    }
+  }
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe && filteredImages.length > 1) {
+      navigateImage('next')
+    }
+    if (isRightSwipe && filteredImages.length > 1) {
+      navigateImage('prev')
+    }
+  }
+
+  useEffect(() => {
+    if (selectedImage) {
+      // Block background scrolling
+      document.body.style.overflow = 'hidden'
+      document.addEventListener('keydown', handleKeyNavigation)
+      
+      return () => {
+        // Restore scrolling
+        document.body.style.overflow = 'unset'
+        document.removeEventListener('keydown', handleKeyNavigation)
+      }
+    }
+  }, [selectedImage, filteredImages])
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -1107,7 +1188,8 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
+      
+      {/* Gallery Section */}
       <section id="gallery" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Portfolio Gallery</h2>
@@ -1118,7 +1200,6 @@ export default function Portfolio() {
               {[
                 { id: "all", label: "All Projects" },
                 { id: "wordpress", label: "WordPress" },
-                { id: "plugin", label: "Plugin Development" },
                 { id: "website", label: "Website Development" },
                 { id: "payment", label: "Payment Integration" },
                 { id: "dashboard", label: "Admin Panels" },
@@ -1177,21 +1258,71 @@ export default function Portfolio() {
               className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4"
               onClick={() => setSelectedImage(null)}
             >
-              <div className="relative w-full h-full max-w-7xl overflow-auto flex items-center justify-center">
-                <div className="w-full max-h-full flex items-center justify-center p-4">
-                  <img 
-                    src={selectedImage} 
-                    alt="Portfolio Image" 
-                    className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
-                    onClick={(e) => e.stopPropagation()}
-                  />
+              <div className="relative w-full h-full max-w-7xl flex items-center justify-center group">
+                <div 
+                  className="overflow-auto max-h-full"
+                  onTouchStart={onTouchStart}
+                  onTouchMove={onTouchMove}
+                  onTouchEnd={onTouchEnd}
+                >
+                  <div className="p-4 pt-0">
+                    <img 
+                      src={selectedImage} 
+                      alt="Portfolio Image" 
+                      className="max-w-full w-auto h-auto object-contain rounded-lg shadow-2xl"
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  </div>
                 </div>
+                
+                {/* Close Button - всегда видна */}
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-colors z-10 backdrop-blur-sm"
+                  className="fixed top-2 right-2 sm:top-4 sm:right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-colors z-20 backdrop-blur-sm"
                 >
                   <X size={20} className="sm:w-6 sm:h-6" />
                 </button>
+
+                {/* Navigation Buttons - всегда видны и зафиксированы */}
+                {filteredImages.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        navigateImage('prev')
+                      }}
+                      className="fixed left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-all duration-300 z-20 backdrop-blur-sm opacity-0 group-hover:opacity-100"
+                    >
+                      <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        navigateImage('next')
+                      }}
+                      className="fixed right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-all duration-300 z-20 backdrop-blur-sm opacity-0 group-hover:opacity-100"
+                    >
+                      <ChevronRight size={20} className="sm:w-6 sm:h-6" />
+                    </button>
+                  </>
+                )}
+
+                {/* Image Info - зафиксирована внизу */}
+                <div className="fixed bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 bg-black/70 backdrop-blur-sm text-white rounded-lg p-3 sm:p-4 transition-all duration-300 opacity-0 group-hover:opacity-100 z-20">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="font-medium text-sm sm:text-base">
+                        {filteredImages.find(img => img.src === selectedImage)?.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-300 mt-1">
+                        {getCurrentImageIndex() + 1} of {filteredImages.length}
+                      </p>
+                    </div>
+                    <Badge variant="outline" className="text-xs bg-black/50 border-gray-500 text-white">
+                      {filteredImages.find(img => img.src === selectedImage)?.category}
+                    </Badge>
+                  </div>
+                </div>
               </div>
             </div>
           )}
