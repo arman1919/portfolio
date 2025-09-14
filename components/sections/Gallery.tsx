@@ -35,6 +35,8 @@ export default function Gallery() {
         { id: 23, src: "/portfolio-images/dropic-2.png", category: "website", title: "Dropic - Edit Album Page" },
         { id: 24, src: "/portfolio-images/dropic-3.png", category: "website", title: "Dropic - Frontend page" },
         { id: 25, src: "/portfolio-images/woo-product.png", category: "wordpress", title: "WooCommerce Product Recommendation" },
+        { id: 26, src: "/portfolio-images/profile-settings.png", category: "dashboard", title: "Profile Settings Admin Panel" },
+        { id: 27, src: "/portfolio-images/edit-question-answers-admin.png", category: "dashboard", title: "Edit Question Answers Admin Panel" },
       ]
     
       const filteredImages =
