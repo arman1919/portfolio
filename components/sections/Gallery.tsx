@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import {ChevronLeft, ChevronRight, Filter, Search, X } from "lucide-react"
 import { Badge } from "../ui/badge"
+import { Button } from "../ui/button"
 
 export default function Gallery() {
 
@@ -8,6 +9,19 @@ export default function Gallery() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null)
     const [touchStart, setTouchStart] = useState<number | null>(null)
     const [touchEnd, setTouchEnd] = useState<number | null>(null)
+    const [showAll, setShowAll] = useState(false)
+
+    // Reset showAll when category changes
+    useEffect(() => {
+        setShowAll(false)
+    }, [selectedCategory])
+
+    const scrollToGallery = () => {
+        const gallerySection = document.getElementById('gallery')
+        if (gallerySection) {
+            gallerySection.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
     
     const galleryImages = [
         { id: 1, src: "/portfolio-images/analytics-menu.png", category: "wordpress", title: "Analytics Menu" },
@@ -41,6 +55,13 @@ export default function Gallery() {
     
       const filteredImages =
         selectedCategory === "all" ? galleryImages : galleryImages.filter((img) => img.category === selectedCategory)
+      
+      // Show only first 9 images (3 rows) unless showAll is true
+      const imagesPerRow = 3
+      const maxRows = 3
+      const maxInitialImages = imagesPerRow * maxRows
+      const displayedImages = showAll ? filteredImages : filteredImages.slice(0, maxInitialImages)
+      const hasMoreImages = filteredImages.length > maxInitialImages
     
       const getCurrentImageIndex = () => {
         return filteredImages.findIndex(img => img.src === selectedImage)
@@ -118,7 +139,7 @@ export default function Gallery() {
 
 
     return (
-        <section id="gallery" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50">
+        <section id="gallery" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-card/50 via-card/50 to-background">
             <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Portfolio Gallery</h2>
 
@@ -151,7 +172,7 @@ export default function Gallery() {
 
             {/* Gallery Images */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                {filteredImages.map((image) => (
+                {displayedImages.map((image) => (
                 <div 
                     key={image.id} 
                     className="relative group cursor-pointer overflow-hidden rounded-lg bg-card shadow-lg hover:shadow-xl transition-all duration-300"
@@ -179,6 +200,32 @@ export default function Gallery() {
                 </div>
                 ))}
             </div>
+
+            {/* Load More / Close Button */}
+            {hasMoreImages && (
+                <div className="flex justify-center mt-12">
+                    {!showAll ? (
+                        <Button
+                            onClick={() => setShowAll(true)}
+                            variant="outline"
+                            className="bg-primary/10 hover:bg-primary/20 border-primary/20 cursor-pointer hover:scale-105 transition-transform duration-200"
+                        >
+                            Load More ({filteredImages.length - maxInitialImages} more)
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={() => {
+                                setShowAll(false)
+                                scrollToGallery()
+                            }}
+                            variant="outline"
+                            className="bg-secondary/10 hover:bg-secondary/20 border-secondary/20 cursor-pointer hover:scale-105 transition-transform duration-200"
+                        >
+                            Show Less
+                        </Button>
+                    )}
+                </div>
+            )}
 
             {/* Lightbox Modal */}
             {selectedImage && (
