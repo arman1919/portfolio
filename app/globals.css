@@ -4,75 +4,75 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Обновленная более темная цветовая схема для лучшей читаемости */
-  --background: #0f172a;
-  --foreground: #f8fafc;
-  --card: #1e293b;
-  --card-foreground: #f8fafc;
-  --popover: rgba(30, 41, 59, 0.9);
-  --popover-foreground: #f8fafc;
-  --primary: #1e40af; /* Более темный синий */
-  --primary-foreground: #f8fafc;
-  --secondary: #7c3aed; /* Более темный фиолетовый */
-  --secondary-foreground: #f8fafc;
+  /* Обновленная цветовая схема для высокотехнологичного фона */
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-foreground: #ffffff;
+  --popover: rgba(255, 255, 255, 0.05);
+  --popover-foreground: #ffffff;
+  --primary: #3b82f6; /* Синий из нового дизайна */
+  --primary-foreground: #ffffff;
+  --secondary: #8b5cf6; /* Фиолетовый из нового дизайна */
+  --secondary-foreground: #ffffff;
   --muted: #475569;
-  --muted-foreground: #e2e8f0;
-  --accent: #1e40af;
-  --accent-foreground: #f8fafc;
+  --muted-foreground: rgba(255, 255, 255, 0.8);
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
   --destructive: #b91c1c;
-  --destructive-foreground: #f8fafc;
-  --border: rgba(148, 163, 184, 0.2);
-  --input: rgba(30, 41, 59, 0.8);
-  --ring: rgba(30, 64, 175, 0.4);
-  --chart-1: #2563eb;
-  --chart-2: #7c3aed;
-  --chart-3: #ea580c;
-  --chart-4: #2563eb;
-  --chart-5: #16a34a;
-  --radius: 0.5rem;
-  --sidebar: #0f172a;
-  --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #1e40af;
-  --sidebar-primary-foreground: #f8fafc;
-  --sidebar-accent: #7c3aed;
-  --sidebar-accent-foreground: #f8fafc;
-  --sidebar-border: rgba(148, 163, 184, 0.2);
-  --sidebar-ring: rgba(30, 64, 175, 0.4);
+  --destructive-foreground: #ffffff;
+  --border: rgba(59, 130, 246, 0.2);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: rgba(59, 130, 246, 0.4);
+  --chart-1: #3b82f6;
+  --chart-2: #8b5cf6;
+  --chart-3: #22c55e;
+  --chart-4: #3b82f6;
+  --chart-5: #22c55e;
+  --radius: 0.75rem;
+  --sidebar: #0a0a0f;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #8b5cf6;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(59, 130, 246, 0.2);
+  --sidebar-ring: rgba(59, 130, 246, 0.4);
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f8fafc;
-  --card: #1e293b;
-  --card-foreground: #f8fafc;
-  --popover: rgba(30, 41, 59, 0.9);
-  --popover-foreground: #f8fafc;
-  --primary: #1e40af;
-  --primary-foreground: #f8fafc;
-  --secondary: #7c3aed;
-  --secondary-foreground: #f8fafc;
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-foreground: #ffffff;
+  --popover: rgba(255, 255, 255, 0.05);
+  --popover-foreground: #ffffff;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #8b5cf6;
+  --secondary-foreground: #ffffff;
   --muted: #475569;
-  --muted-foreground: #e2e8f0;
-  --accent: #1e40af;
-  --accent-foreground: #f8fafc;
+  --muted-foreground: rgba(255, 255, 255, 0.8);
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
   --destructive: #b91c1c;
-  --destructive-foreground: #f8fafc;
-  --border: rgba(148, 163, 184, 0.2);
-  --input: rgba(30, 41, 59, 0.8);
-  --ring: rgba(30, 64, 175, 0.4);
-  --chart-1: #2563eb;
-  --chart-2: #7c3aed;
-  --chart-3: #ea580c;
-  --chart-4: #2563eb;
-  --chart-5: #16a34a;
-  --sidebar: #0f172a;
-  --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #1e40af;
-  --sidebar-primary-foreground: #f8fafc;
-  --sidebar-accent: #7c3aed;
-  --sidebar-accent-foreground: #f8fafc;
-  --sidebar-border: rgba(148, 163, 184, 0.2);
-  --sidebar-ring: rgba(30, 64, 175, 0.4);
+  --destructive-foreground: #ffffff;
+  --border: rgba(59, 130, 246, 0.2);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: rgba(59, 130, 246, 0.4);
+  --chart-1: #3b82f6;
+  --chart-2: #8b5cf6;
+  --chart-3: #22c55e;
+  --chart-4: #3b82f6;
+  --chart-5: #22c55e;
+  --sidebar: #0a0a0f;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #8b5cf6;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(59, 130, 246, 0.2);
+  --sidebar-ring: rgba(59, 130, 246, 0.4);
 }
 
 @theme inline {
@@ -185,6 +185,156 @@
   /* Firefox Scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #1e40af rgba(30, 41, 59, 0.3);
+    scrollbar-color: #3b82f6 rgba(10, 10, 15, 0.3);
+  }
+
+  /* High-Tech Background Styles */
+  .tech-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a0f 100%);
+    z-index: -3;
+  }
+
+  .grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+    animation: gridPulse 4s ease-in-out infinite alternate;
+  }
+
+  .floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .tech-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(59, 130, 246, 0.6);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .tech-particle:nth-child(odd) {
+    background: rgba(139, 92, 246, 0.5);
+    animation-delay: -2s;
+  }
+
+  .tech-particle:nth-child(3n) {
+    background: rgba(34, 197, 94, 0.4);
+    animation-delay: -4s;
+  }
+
+  .circuit-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+    animation: circuitFlow 8s linear infinite;
+  }
+
+  .accent-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -2;
+    animation: glowMove 10s ease-in-out infinite;
+  }
+
+  .accent-glow-1 {
+    top: 20%;
+    left: 80%;
+  }
+
+  .accent-glow-2 {
+    top: 60%;
+    left: 20%;
+    animation-delay: -5s;
+  }
+
+  /* High-Tech Animations */
+  @keyframes float {
+    0%, 100% { 
+      transform: translate(0, 0) rotate(0deg); 
+      opacity: 0; 
+    }
+    10%, 90% { 
+      opacity: 1; 
+    }
+    50% { 
+      transform: translate(30px, -30px) rotate(180deg); 
+    }
+  }
+
+  @keyframes gridPulse {
+    0% { 
+      opacity: 0.1; 
+    }
+    100% { 
+      opacity: 0.3; 
+    }
+  }
+
+  @keyframes circuitFlow {
+    0% { 
+      transform: translateX(-100%); 
+      opacity: 0; 
+    }
+    50% { 
+      opacity: 1; 
+    }
+    100% { 
+      transform: translateX(100vw); 
+      opacity: 0; 
+    }
+  }
+
+  @keyframes glowMove {
+    0%, 100% { 
+      transform: translate(10vw, 10vh); 
+    }
+    25% { 
+      transform: translate(80vw, 20vh); 
+    }
+    50% { 
+      transform: translate(70vw, 80vh); 
+    }
+    75% { 
+      transform: translate(20vw, 70vh); 
+    }
+  }
+
+  /* Обновленные стили для стеклянного эффекта */
+  .glass {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card {
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 }

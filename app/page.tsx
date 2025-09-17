@@ -14,7 +14,6 @@ import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Gallery from "@/components/sections/Gallery";
 import Experience from "@/components/sections/Experience";
-import WorkTogether from "@/components/sections/WorkTogether";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
@@ -56,7 +55,7 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -148,9 +147,6 @@ export default function Portfolio() {
 
       {/* Professional Experience Section */}
       <Experience />
-
-      {/* Let's Work Together Section */}
-      <WorkTogether scrollToSection={scrollToSection} />
 
       {/* Contact Section */}
       <Contact />

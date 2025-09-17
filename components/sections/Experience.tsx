@@ -4,11 +4,7 @@ import { Badge } from "../ui/badge";
 
 export default function Experience() {
     return (
-        <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-background via-background to-card/50">
-            {/* Background decoration */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 pointer-events-none"></div>
-            <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
+        <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-16">
@@ -21,7 +17,7 @@ export default function Experience() {
                 </div>
 
                 {/* Timeline line */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary h-full opacity-20"></div>
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-primary/20 h-full"></div>
                 
                 <div className="space-y-12">
                     <div className="relative md:flex md:items-center">
@@ -169,8 +165,6 @@ export default function Experience() {
                     </div>
                 </div>
             </div>
-            {/* Bottom fade to blend into next section */}
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-card/50 z-20"></div>
         </section>
     )
 }

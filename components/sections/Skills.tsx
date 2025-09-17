@@ -5,7 +5,7 @@ import { Code, Database, Brain, Wrench, GraduationCap, Languages, Users, CheckCi
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-card/50 via-card/50 to-background">
+        <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Skills & Technologies</h2>
 

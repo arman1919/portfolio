@@ -1,6 +1,5 @@
-import { Mail } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
-import { Button } from "../ui/button"
+import { Mail, Github } from "lucide-react";
+import { Button } from "../ui/button";
 
 export default function Footer(props: { scrollToSection: (sectionId: string) => void }) {
     return (
@@ -14,7 +13,7 @@ export default function Footer(props: { scrollToSection: (sectionId: string) => 
 
             <div className="flex items-center gap-6">
               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
-                <FaGithub size={20} />
+                <Github size={20} />
               </Button>
               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
                 <Mail size={20} />
