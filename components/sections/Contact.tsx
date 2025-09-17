@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Paperclip, X } from "lucide-react";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 import { useState } from "react";
@@ -7,23 +7,49 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
     const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+    const [attachedFiles, setAttachedFiles] = useState<File[]>([])
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = Array.from(e.target.files || [])
+        const validFiles = files.filter(file => {
+            // Ограничиваем размер файла до 10MB
+            if (file.size > 10 * 1024 * 1024) {
+                alert(`File ${file.name} is too large. Maximum size is 10MB.`)
+                return false
+            }
+            return true
+        })
+        setAttachedFiles(prev => [...prev, ...validFiles])
+    }
+
+    const removeFile = (index: number) => {
+        setAttachedFiles(prev => prev.filter((_, i) => i !== index))
+    }
 
     const handleFormSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsSubmitting(true)
     
         try {
+          const formDataToSend = new FormData()
+          formDataToSend.append('name', formData.name)
+          formDataToSend.append('email', formData.email)
+          formDataToSend.append('message', formData.message)
+          
+          // Добавляем файлы
+          attachedFiles.forEach((file, index) => {
+            formDataToSend.append(`attachment_${index}`, file)
+          })
+
           const response = await fetch('/api/contact', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
+            body: formDataToSend, // Убираем Content-Type header для FormData
           })
     
           if (response.ok) {
             setSubmitStatus("success")
             setFormData({ name: "", email: "", message: "" })
+            setAttachedFiles([])
           } else {
             setSubmitStatus("error")
           }
@@ -155,6 +181,59 @@ export default function Contact() {
                         className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                         required
                         />
+                    </div>
+
+                    {/* File Attachment */}
+                    <div>
+                        <label className="block text-sm font-medium mb-2">
+                            Attachments (optional)
+                        </label>
+                        <div className="space-y-3">
+                            <div className="flex items-center gap-3">
+                                <input
+                                    type="file"
+                                    id="file-upload"
+                                    multiple
+                                    onChange={handleFileChange}
+                                    className="hidden"
+                                    accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif,.zip,.rar"
+                                />
+                                <label
+                                    htmlFor="file-upload"
+                                    className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg cursor-pointer hover:bg-accent/10 transition-colors"
+                                >
+                                    <Paperclip size={16} />
+                                    <span className="text-sm">Attach Files</span>
+                                </label>
+                                <span className="text-xs text-muted-foreground">
+                                    Max 10MB per file
+                                </span>
+                            </div>
+                            
+                            {/* Attached Files List */}
+                            {attachedFiles.length > 0 && (
+                                <div className="space-y-2">
+                                    {attachedFiles.map((file, index) => (
+                                        <div key={index} className="flex items-center justify-between p-2 bg-accent/5 rounded-lg border border-border">
+                                            <div className="flex items-center gap-2">
+                                                <Paperclip size={14} className="text-muted-foreground" />
+                                                <span className="text-sm truncate max-w-[200px]">{file.name}</span>
+                                                <span className="text-xs text-muted-foreground">
+                                                    ({(file.size / 1024 / 1024).toFixed(1)} MB)
+                                                </span>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                onClick={() => removeFile(index)}
+                                                className="p-1 hover:bg-destructive/10 rounded transition-colors"
+                                            >
+                                                <X size={14} className="text-muted-foreground hover:text-destructive" />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <Button

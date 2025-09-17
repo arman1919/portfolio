@@ -4,7 +4,7 @@ import { Button } from "../ui/button"
 // components/sections/Hero.tsx
 export default function Hero(props: { scrollToSection: (arg0: string) => void; }) {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden mt-16">
             <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
               <div className="mb-8">
                 <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
