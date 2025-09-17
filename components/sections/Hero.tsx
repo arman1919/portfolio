@@ -1,4 +1,4 @@
-import { ChevronDown, Phone, Mail, MapPin } from "lucide-react"
+import { ChevronDown, Phone, Mail, MapPin, Github, Linkedin } from "lucide-react"
 import { Button } from "../ui/button"
 
 // components/sections/Hero.tsx
@@ -40,20 +40,53 @@ export default function Hero(props: { scrollToSection: (arg0: string) => void; }
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <Phone size={16} />
-                  <span>+374 98 983797</span>
+                  <a 
+                    href="tel:+37498983797" 
+                    className="hover:text-primary transition-colors cursor-pointer"
+                  >
+                    +374 98 983797
+                  </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail size={16} />
-                  <span>arman.raf2001@gmail.com</span>
+                  <a 
+                    href="mailto:arman.raf2001@gmail.com" 
+                    className="hover:text-primary transition-colors cursor-pointer"
+                  >
+                    arman.raf2001@gmail.com
+                  </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin size={16} />
-                  <span>Yerevan, Armenia</span>
+                  <a 
+                    href="https://maps.app.goo.gl/bfjTZoYeyv5nLEZ28" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors cursor-pointer"
+                  >
+                    Yerevan, Armenia
+                  </a>
                 </div>
               </div>
-    
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <ChevronDown size={24} className="text-muted-foreground" />
+
+              {/* Social Links */}
+              <div className="flex justify-center items-center gap-6 mt-8">
+                <a 
+                  href="https://github.com/arman1919" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 glass-card rounded-full hover:bg-primary/10 transition-all duration-300 group"
+                >
+                  <Github size={24} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/arman-rafayelyan-002a0b188/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 glass-card rounded-full hover:bg-primary/10 transition-all duration-300 group"
+                >
+                  <Linkedin size={24} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                </a>
               </div>
             </div>
         </section>

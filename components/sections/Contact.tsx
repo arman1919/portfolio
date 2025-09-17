@@ -59,7 +59,12 @@ export default function Contact() {
                         </div>
                         <div>
                             <h4 className="font-semibold">Email</h4>
-                            <p className="text-muted-foreground">arman.raf2001@gmail.com</p>
+                            <a 
+                              href="mailto:arman.raf2001@gmail.com" 
+                              className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                            >
+                              arman.raf2001@gmail.com
+                            </a>
                         </div>
                         </div>
                     </CardContent>
@@ -73,7 +78,12 @@ export default function Contact() {
                         </div>
                         <div>
                             <h4 className="font-semibold">Phone</h4>
-                            <p className="text-muted-foreground">+374 98 983797</p>
+                            <a 
+                              href="tel:+37498983797" 
+                              className="text-muted-foreground hover:text-secondary transition-colors cursor-pointer"
+                            >
+                              +374 98 983797
+                            </a>
                         </div>
                         </div>
                     </CardContent>
@@ -87,7 +97,14 @@ export default function Contact() {
                         </div>
                         <div>
                             <h4 className="font-semibold">Location</h4>
-                            <p className="text-muted-foreground">Yerevan, Armenia</p>
+                            <a 
+                              href="https://maps.app.goo.gl/bfjTZoYeyv5nLEZ28" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                            >
+                              Yerevan, Armenia
+                            </a>
                         </div>
                         </div>
                     </CardContent>

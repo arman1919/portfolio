@@ -1,4 +1,3 @@
-import { Mail, Github } from "lucide-react";
 import { Button } from "../ui/button";
 
 export default function Footer(props: { scrollToSection: (sectionId: string) => void }) {
@@ -12,17 +11,11 @@ export default function Footer(props: { scrollToSection: (sectionId: string) => 
             </div>
 
             <div className="flex items-center gap-6">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
-                <Github size={20} />
-              </Button>
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
-                <Mail size={20} />
-              </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => props.scrollToSection("home")}
-                className="text-muted-foreground hover:text-primary"
+                className="text-muted-foreground"
               >
                 Back to Top
               </Button>
