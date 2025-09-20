@@ -61,7 +61,17 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
-              <span className="text-2xl font-bold text-primary">AR</span>
+              <button 
+                onClick={() => scrollToSection("home")}
+                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-accent/10 transition-colors"
+              >
+                <img 
+                  src="/icons/logo-128.png"
+                  srcSet="/icons/logo-128.png 1x, /icons/logo-256.png 2x"
+                  alt="Arman Rafayelyan"
+                  className="w-8 h-8 rounded-full"
+                />
+              </button>
             </div>
 
             {/* Desktop Navigation */}

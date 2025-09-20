@@ -7,9 +7,15 @@ export default function Hero(props: { scrollToSection: (arg0: string) => void; }
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden mt-16">
             <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
               <div className="mb-8">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
-                  <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
-                    <span className="text-4xl font-bold text-primary">AR</span>
+                <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-card/50 backdrop-blur-sm border border-border/20 p-2 shadow-lg">
+                  <div className="w-full h-full rounded-full bg-background/80 flex items-center justify-center overflow-hidden p-2">
+                    <img 
+                      alt="Arman Rafayelyan Logo" 
+                      src="/icons/logo-256.png"
+                      srcSet="/icons/logo-128.png 1x, /icons/logo-256.png 2x, /icons/logo-512.png 3x"
+                      className="w-full h-full object-cover rounded-full"
+                      loading="eager"
+                    />
                   </div>
                 </div>
               </div>
