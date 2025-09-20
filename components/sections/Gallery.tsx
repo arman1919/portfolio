@@ -24,33 +24,33 @@ export default function Gallery() {
     }
     
     const galleryImages = [
-        { id: 1, src: "/portfolio-images/analytics-menu.png", category: "wordpress", title: "Analytics Menu" },
-        { id: 2, src: "/portfolio-images/analytic-tab.png", category: "wordpress", title: "Analytics Tab" },
-        { id: 3, src: "/portfolio-images/announcements-front.png", category: "wordpress", title: "Announcements Frontend Tab" },
-        { id: 4, src: "/portfolio-images/attachment-section.png", category: "wordpress", title: "Attachment Admin Panel" },
-        { id: 5, src: "/portfolio-images/color-palette.png", category: "wordpress", title: "Color Palette System" },
-        { id: 6, src: "/portfolio-images/coupon-admin.png", category: "payment", title: "Coupon Admin Panel" },
-        { id: 7, src: "/portfolio-images/coupon-front.png", category: "payment", title: "Coupon Frontend" },
-        { id: 8, src: "/portfolio-images/gamipress.png", category: "wordpress", title: "GamiPress Integration Admin Panel" },
-        { id: 9, src: "/portfolio-images/notifications.png", category: "wordpress", title: "Notifications System Frontend" },
-        { id: 10, src: "/portfolio-images/paymeny.png", category: "payment", title: "Payment Integration Admin Panel" },
-        { id: 11, src: "/portfolio-images/popup-1.png", category: "banners", title: "Popup Plugin Frontend" },
-        { id: 12, src: "/portfolio-images/popup-demo-1.png", category: "website", title: "Popup Plugin Demo Landing Page" },
-        { id: 13, src: "/portfolio-images/popup-demo-2.png", category: "website", title: "Popup Plugin Free Demo Landing Page" },
-        { id: 14, src: "/portfolio-images/q-and-a-front.png", category: "wordpress", title: "Questions & Answers Frontend" },
-        { id: 15, src: "/portfolio-images/registration-login-1.png", category: "dashboard", title: "Login Form Admin Panel" },
-        { id: 16, src: "/portfolio-images/registration-login-2.png", category: "dashboard", title: "Registration Form Admin Panel" },
-        { id: 17, src: "/portfolio-images/schedule-course-section.png", category: "wordpress", title: "Schedule Course Admin Panel" },
-        { id: 18, src: "/portfolio-images/levelstudio-1.png", category: "website", title: "LevelStudio.am" },
-        { id: 19, src: "/portfolio-images/levelstudio-2.png", category: "website", title: "LevelStudio.am Calculator" },
-        { id: 20, src: "/portfolio-images/popup-2.png", category: "banners", title: "Plugin Sale Popup" },
-        { id: 21, src: "/portfolio-images/banner-1.png", category: "banners", title: "Banner Admin Panel" },
-        { id: 22, src: "/portfolio-images/dropic-1.png", category: "website", title: "Dropic - Online Photo Album Landing Page" },
-        { id: 23, src: "/portfolio-images/dropic-2.png", category: "website", title: "Dropic - Edit Album Page" },
-        { id: 24, src: "/portfolio-images/dropic-3.png", category: "website", title: "Dropic - Frontend page" },
-        { id: 25, src: "/portfolio-images/woo-product.png", category: "wordpress", title: "WooCommerce Product Recommendation" },
-        { id: 26, src: "/portfolio-images/profile-settings.png", category: "dashboard", title: "Profile Settings Admin Panel" },
-        { id: 27, src: "/portfolio-images/edit-question-answers-admin.png", category: "dashboard", title: "Edit Question Answers Admin Panel" },
+        { id: 1, thumb: "/portfolio-images/thumbs/analytics-menu.webp", full: "/portfolio-images/full/analytics-menu.webp", category: "wordpress", title: "Analytics Menu" },
+        { id: 2, thumb: "/portfolio-images/thumbs/analytic-tab.webp", full: "/portfolio-images/full/analytic-tab.webp", category: "wordpress", title: "Analytics Tab" },
+        { id: 3, thumb: "/portfolio-images/thumbs/announcements-front.webp", full: "/portfolio-images/full/announcements-front.webp", category: "wordpress", title: "Announcements Frontend Tab" },
+        { id: 4, thumb: "/portfolio-images/thumbs/attachment-section.webp", full: "/portfolio-images/full/attachment-section.webp", category: "wordpress", title: "Attachment Admin Panel" },
+        { id: 5, thumb: "/portfolio-images/thumbs/color-palette.webp", full: "/portfolio-images/full/color-palette.webp", category: "wordpress", title: "Color Palette System" },
+        { id: 6, thumb: "/portfolio-images/thumbs/coupon-admin.webp", full: "/portfolio-images/full/coupon-admin.webp", category: "payment", title: "Coupon Admin Panel" },
+        { id: 7, thumb: "/portfolio-images/thumbs/coupon-front.webp", full: "/portfolio-images/full/coupon-front.webp", category: "payment", title: "Coupon Frontend" },
+        { id: 8, thumb: "/portfolio-images/thumbs/gamipress.webp", full: "/portfolio-images/full/gamipress.webp", category: "wordpress", title: "GamiPress Integration Admin Panel" },
+        { id: 9, thumb: "/portfolio-images/thumbs/notifications.webp", full: "/portfolio-images/full/notifications.webp", category: "wordpress", title: "Notifications System Frontend" },
+        { id: 10, thumb: "/portfolio-images/thumbs/paymeny.webp", full: "/portfolio-images/full/paymeny.webp", category: "payment", title: "Payment Integration Admin Panel" },
+        { id: 11, thumb: "/portfolio-images/thumbs/popup-1.webp", full: "/portfolio-images/full/popup-1.webp", category: "banners", title: "Popup Plugin Frontend" },
+        { id: 12, thumb: "/portfolio-images/thumbs/popup-demo-1.webp", full: "/portfolio-images/full/popup-demo-1.webp", category: "website", title: "Popup Plugin Demo Landing Page" },
+        { id: 13, thumb: "/portfolio-images/thumbs/popup-demo-2.webp", full: "/portfolio-images/full/popup-demo-2.webp", category: "website", title: "Popup Plugin Free Demo Landing Page" },
+        { id: 14, thumb: "/portfolio-images/thumbs/q-and-a-front.webp", full: "/portfolio-images/full/q-and-a-front.webp", category: "wordpress", title: "Questions & Answers Frontend" },
+        { id: 15, thumb: "/portfolio-images/thumbs/registration-login-1.webp", full: "/portfolio-images/full/registration-login-1.webp", category: "dashboard", title: "Login Form Admin Panel" },
+        { id: 16, thumb: "/portfolio-images/thumbs/registration-login-2.webp", full: "/portfolio-images/full/registration-login-2.webp", category: "dashboard", title: "Registration Form Admin Panel" },
+        { id: 17, thumb: "/portfolio-images/thumbs/schedule-course-section.webp", full: "/portfolio-images/full/schedule-course-section.webp", category: "wordpress", title: "Schedule Course Admin Panel" },
+        { id: 18, thumb: "/portfolio-images/thumbs/levelstudio-1.webp", full: "/portfolio-images/full/levelstudio-1.webp", category: "website", title: "LevelStudio.am" },
+        { id: 19, thumb: "/portfolio-images/thumbs/levelstudio-2.webp", full: "/portfolio-images/full/levelstudio-2.webp", category: "website", title: "LevelStudio.am Calculator" },
+        { id: 20, thumb: "/portfolio-images/thumbs/popup-2.webp", full: "/portfolio-images/full/popup-2.webp", category: "banners", title: "Plugin Sale Popup" },
+        { id: 21, thumb: "/portfolio-images/thumbs/banner-1.webp", full: "/portfolio-images/full/banner-1.webp", category: "banners", title: "Banner Admin Panel" },
+        { id: 22, thumb: "/portfolio-images/thumbs/dropic-1.webp", full: "/portfolio-images/full/dropic-1.webp", category: "website", title: "Dropic - Online Photo Album Landing Page" },
+        { id: 23, thumb: "/portfolio-images/thumbs/dropic-2.webp", full: "/portfolio-images/full/dropic-2.webp", category: "website", title: "Dropic - Edit Album Page" },
+        { id: 24, thumb: "/portfolio-images/thumbs/dropic-3.webp", full: "/portfolio-images/full/dropic-3.webp", category: "website", title: "Dropic - Frontend page" },
+        { id: 25, thumb: "/portfolio-images/thumbs/woo-product.webp", full: "/portfolio-images/full/woo-product.webp", category: "wordpress", title: "WooCommerce Product Recommendation" },
+        { id: 26, thumb: "/portfolio-images/thumbs/profile-settings.webp", full: "/portfolio-images/full/profile-settings.webp", category: "dashboard", title: "Profile Settings Admin Panel" },
+        { id: 27, thumb: "/portfolio-images/thumbs/edit-question-answers-admin.webp", full: "/portfolio-images/full/edit-question-answers-admin.webp", category: "dashboard", title: "Edit Question Answers Admin Panel" },
       ]
     
       const filteredImages =
@@ -64,7 +64,7 @@ export default function Gallery() {
       const hasMoreImages = filteredImages.length > maxInitialImages
     
       const getCurrentImageIndex = () => {
-        return filteredImages.findIndex(img => img.src === selectedImage)
+        return filteredImages.findIndex(img => img.full === selectedImage)
       }
     
       const navigateImage = (direction: 'prev' | 'next') => {
@@ -78,7 +78,7 @@ export default function Gallery() {
           newIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1
         }
         
-        setSelectedImage(filteredImages[newIndex].src)
+        setSelectedImage(filteredImages[newIndex].full)
       }
     
       const handleKeyNavigation = (e: KeyboardEvent) => {
@@ -176,13 +176,14 @@ export default function Gallery() {
                 <div 
                     key={image.id} 
                     className="relative group cursor-pointer overflow-hidden rounded-lg bg-card shadow-lg hover:shadow-xl transition-all duration-300"
-                    onClick={() => setSelectedImage(image.src)}
+                    onClick={() => setSelectedImage(image.full)}
                 >
                     <div className="aspect-[4/3] w-full overflow-hidden">
                     <img 
-                        src={image.src || "/placeholder.svg"} 
+                        src={image.thumb || "/placeholder.svg"} 
                         alt={image.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
                     />
                     </div>
                     
@@ -287,14 +288,14 @@ export default function Gallery() {
                     <div className="flex items-center justify-between">
                         <div>
                         <h3 className="font-medium text-sm sm:text-base">
-                            {filteredImages.find(img => img.src === selectedImage)?.title}
+                            {filteredImages.find(img => img.full === selectedImage)?.title}
                         </h3>
                         <p className="text-xs sm:text-sm text-gray-300 mt-1">
                             {getCurrentImageIndex() + 1} of {filteredImages.length}
                         </p>
                         </div>
                         <Badge variant="outline" className="text-xs bg-black/50 border-gray-500 text-white">
-                        {filteredImages.find(img => img.src === selectedImage)?.category}
+                        {filteredImages.find(img => img.full === selectedImage)?.category}
                         </Badge>
                     </div>
                     </div>
