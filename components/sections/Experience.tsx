@@ -26,18 +26,20 @@ export default function Experience() {
                         
                         <Card className="glass-card hover:shadow-xl transition-all duration-300 md:w-[calc(50%-2rem)] md:ml-auto group">
                             <CardContent className="p-8">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                                        <Code size={20} className="text-primary" />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">WordPress Plugin Developer</h3>
-                                        <div className="flex items-center gap-2 text-muted-foreground">
-                                            <Building2 size={14} />
-                                            <span>TT-Soft</span>
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+                                    <div className="flex items-center gap-3 flex-1">
+                                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                                            <Code size={20} className="text-primary" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">WordPress Plugin Developer</h3>
+                                            <div className="flex items-center gap-2 text-muted-foreground">
+                                                <Building2 size={14} />
+                                                <span>TT-Soft</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <Badge variant="outline" className="bg-primary/5 border-primary/20">
+                                    <Badge variant="outline" className="bg-primary/5 border-primary/20 self-start sm:self-center">
                                         <Calendar size={12} className="mr-1" />
                                         Nov 2024 - Present
                                     </Badge>
@@ -126,18 +128,20 @@ export default function Experience() {
                         
                         <Card className="glass-card hover:shadow-xl transition-all duration-300 md:w-[calc(50%-2rem)] md:ml-auto group">
                             <CardContent className="p-8">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                                        <Code size={20} className="text-primary" />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">ML Engineer & Python Developer</h3>
-                                        <div className="flex items-center gap-2 text-muted-foreground">
-                                            <Building2 size={14} />
-                                            <span>CareAware</span>
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+                                    <div className="flex items-center gap-3 flex-1">
+                                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                                            <Code size={20} className="text-primary" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">ML Engineer & Python Developer</h3>
+                                            <div className="flex items-center gap-2 text-muted-foreground">
+                                                <Building2 size={14} />
+                                                <span>CareAware</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <Badge variant="outline" className="bg-primary/5 border-primary/20">
+                                    <Badge variant="outline" className="bg-primary/5 border-primary/20 self-start sm:self-center">
                                         <Calendar size={12} className="mr-1" />
                                         Feb 2024 – May 2024
                                     </Badge>

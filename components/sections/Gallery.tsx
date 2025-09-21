@@ -56,9 +56,9 @@ export default function Gallery() {
       const filteredImages =
         selectedCategory === "all" ? galleryImages : galleryImages.filter((img) => img.category === selectedCategory)
       
-      // Show only first 9 images (3 rows) unless showAll is true
+      // Show only first 6 images (2 rows) unless showAll is true
       const imagesPerRow = 3
-      const maxRows = 3
+      const maxRows = 2
       const maxInitialImages = imagesPerRow * maxRows
       const displayedImages = showAll ? filteredImages : filteredImages.slice(0, maxInitialImages)
       const hasMoreImages = filteredImages.length > maxInitialImages

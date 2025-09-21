@@ -9,9 +9,9 @@ export default function About() {
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">About Me</h2>
 
-                <div className="grid lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 {/* Left Column: Education & Professional Journey */}
-                <div className="space-y-8">
+                <div className="space-y-8 w-full">
                     <div>
                     <p className="text-xl text-muted-foreground mb-6 text-pretty leading-relaxed">
                     I am a fullstack web developer, creating modern, responsive landing pages and web applications that are both visually appealing and user-friendly. I handle the full development process, from interface design and frontend layout to server-side logic, databases, and cloud integration.                </p>
@@ -22,7 +22,7 @@ export default function About() {
 
                     {/* Education Card */}
                     <Card className="glass-card">
-                    <CardContent className="p-8">
+                    <CardContent className="p-6 sm:p-8">
                         <div className="flex items-center mb-6">
                         <div className="p-3 bg-primary/10 rounded-xl mr-4">
                             <GraduationCap className="text-primary" size={32} />
@@ -32,9 +32,9 @@ export default function About() {
                         
                         <div className="space-y-8">
                         <div className="border-l-4 border-primary/40 pl-6 pb-6">
-                            <div className="flex items-start justify-between mb-3">
+                            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 gap-2">
                             <h4 className="font-bold text-base text-primary">Picsart Academy</h4>
-                            <Badge variant="default" className="text-sm bg-primary/20">Python Engineer</Badge>
+                            <Badge variant="default" className="text-sm bg-primary/20 self-start">Python Engineer</Badge>
                             </div>
                             <p className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">Technologies</p>
                             <div className="flex flex-wrap gap-2">
@@ -51,9 +51,9 @@ export default function About() {
                         </div>
                         
                         <div className="border-l-4 border-secondary/40 pl-6">
-                            <div className="flex items-start justify-between mb-3">
+                            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 gap-2">
                             <h4 className="font-bold text-base text-secondary">Yerevan State University</h4>
-                            <Badge variant="default" className="text-sm bg-secondary/20">Informatics & Applied Math</Badge>
+                            <Badge variant="default" className="text-sm bg-secondary/20 self-start">Informatics & Applied Math</Badge>
                             </div>
                             <p className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">Courses</p>
                             <div className="flex flex-wrap gap-2">
@@ -74,10 +74,10 @@ export default function About() {
                 </div>
 
                 {/* Right Column: Skills & Languages */}
-                <div className="space-y-8">
+                <div className="space-y-8 w-full">
                     {/* Soft Skills Card */}
                     <Card className="glass-card">
-                    <CardContent className="p-8">
+                    <CardContent className="p-6 sm:p-8">
                         <div className="flex items-center mb-6">
                         <div className="p-3 bg-secondary/10 rounded-xl mr-4">
                             <Users className="text-secondary" size={32} />
@@ -142,7 +142,7 @@ export default function About() {
 
                     {/* Languages Card */}
                     <Card className="glass-card">
-                    <CardContent className="p-8">
+                    <CardContent className="p-6 sm:p-8">
                         <div className="flex items-center mb-6">
                         <div className="p-3 bg-primary/10 rounded-xl mr-4">
                             <Languages className="text-primary" size={32} />
