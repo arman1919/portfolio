@@ -49,7 +49,13 @@ export default function Portfolio() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      const navbarHeight = 64 // 16 * 4 = 64px (h-16)
+      const offsetTop = element.offsetTop - (sectionId === 'home' ? 0 : navbarHeight)
+      
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      })
     }
     setIsMenuOpen(false)
   }
@@ -68,7 +74,7 @@ export default function Portfolio() {
                 <img 
                   src="/icons/logo-128.png"
                   srcSet="/icons/logo-128.png 1x, /icons/logo-256.png 2x"
-                  alt="Arman Rafayelyan"
+                  alt="Arman Rafayelyan - Web Developer Portfolio Logo"
                   className="w-8 h-8 rounded-full"
                 />
               </button>

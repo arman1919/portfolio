@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
 
     // Prepare email data
     const emailData: any = {
-      from: 'portfolio@resend.dev', // Use verified domain or resend.dev for testing
+      from: 'portfolio@armanrafayelyan.com',
       to: 'arman.raf2001@gmail.com',
       subject: `Portfolio Contact: ${name}${attachments.length > 0 ? ` (${attachments.length} attachment${attachments.length > 1 ? 's' : ''})` : ''}`,
       html: `

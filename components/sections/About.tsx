@@ -27,7 +27,7 @@ export default function About() {
                         <div className="p-3 bg-primary/10 rounded-xl mr-4">
                             <GraduationCap className="text-primary" size={32} />
                         </div>
-                        <h3 className="font-bold text-xl">Education</h3>
+                        <h3 className="font-bold text-xl">Professional Education & Training</h3>
                         </div>
                         
                         <div className="space-y-8">
@@ -82,7 +82,7 @@ export default function About() {
                         <div className="p-3 bg-secondary/10 rounded-xl mr-4">
                             <Users className="text-secondary" size={32} />
                         </div>
-                        <h3 className="font-bold text-xl">Soft Skills</h3>
+                        <h3 className="font-bold text-xl">Professional Skills & Competencies</h3>
                         </div>
                         
                         <div className="space-y-4">
@@ -147,7 +147,7 @@ export default function About() {
                         <div className="p-3 bg-primary/10 rounded-xl mr-4">
                             <Languages className="text-primary" size={32} />
                         </div>
-                        <h3 className="font-bold text-xl">Languages</h3>
+                        <h3 className="font-bold text-xl">Language Proficiency</h3>
                         </div>
                         
                         <div className="space-y-4">
