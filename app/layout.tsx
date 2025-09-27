@@ -9,6 +9,7 @@ import StructuredData from "@/components/StructuredData"
 import SEOOptimizations from "@/components/SEOOptimizations"
 import CriticalStyles from "@/components/CriticalStyles"
 import WebVitalsScript from "@/components/WebVitalsScript"
+import FaviconLinks from "@/components/FaviconLinks"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -75,17 +76,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/icon0.svg", type: "image/svg+xml" },
-      { url: "/icon1.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon.ico", sizes: "any" },
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "16x16", type: "image/x-icon" },
     ],
     apple: [
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    other: [
-      { rel: "mask-icon", url: "/icon0.svg", color: "#3b82f6" },
-    ],
+    shortcut: "/favicon.ico",
   },
 }
 
@@ -98,6 +96,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head>
         <SEOOptimizations />
+        <FaviconLinks />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <StructuredData />

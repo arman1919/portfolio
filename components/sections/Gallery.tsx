@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {ChevronLeft, ChevronRight, Filter, Search, X } from "lucide-react"
+import {ChevronLeft, ChevronRight, Filter, Search, X, ZoomIn } from "lucide-react"
 import { Badge } from "../ui/badge"
 import { Button } from "../ui/button"
 
@@ -10,6 +10,8 @@ export default function Gallery() {
     const [touchStart, setTouchStart] = useState<number | null>(null)
     const [touchEnd, setTouchEnd] = useState<number | null>(null)
     const [showAll, setShowAll] = useState(false)
+    const [isAnimating, setIsAnimating] = useState(false)
+    const [animationDirection, setAnimationDirection] = useState<'left' | 'right' | null>(null)
 
     // Reset showAll when category changes
     useEffect(() => {
@@ -68,6 +70,8 @@ export default function Gallery() {
       }
     
       const navigateImage = (direction: 'prev' | 'next') => {
+        if (isAnimating) return // Prevent navigation during animation
+        
         const currentIndex = getCurrentImageIndex()
         if (currentIndex === -1) return
     
@@ -78,7 +82,20 @@ export default function Gallery() {
           newIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1
         }
         
-        setSelectedImage(filteredImages[newIndex].full)
+        // Set animation direction and start animation
+        setAnimationDirection(direction === 'prev' ? 'right' : 'left')
+        setIsAnimating(true)
+        
+        // Change image after a short delay to show animation
+        setTimeout(() => {
+          setSelectedImage(filteredImages[newIndex].full)
+          
+          // Reset animation after image change
+          setTimeout(() => {
+            setIsAnimating(false)
+            setAnimationDirection(null)
+          }, 300)
+        }, 150)
       }
     
       const handleKeyNavigation = (e: KeyboardEvent) => {
@@ -187,8 +204,13 @@ export default function Gallery() {
                     />
                     </div>
                     
-                    {/* Magnifying Glass Overlay */}
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    {/* Mobile Zoom Icon - Top Right Corner */}
+                    <div className="absolute top-2 right-2 sm:hidden bg-black/60 backdrop-blur-sm rounded-full p-2 opacity-80">
+                      <ZoomIn size={16} className="text-white" />
+                    </div>
+                    
+                    {/* Desktop Magnifying Glass Overlay */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center hidden sm:flex">
                     <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
                         <Search size={32} className="text-white" />
                     </div>
@@ -245,7 +267,13 @@ export default function Gallery() {
                         <img 
                         src={selectedImage} 
                         alt="Portfolio Image" 
-                        className="max-w-full w-auto h-auto object-contain rounded-lg shadow-2xl"
+                        className={`max-w-full w-auto h-auto object-contain rounded-lg shadow-2xl transition-all duration-300 ${
+                          isAnimating 
+                            ? animationDirection === 'left' 
+                              ? 'transform translate-x-full opacity-0' 
+                              : 'transform -translate-x-full opacity-0'
+                            : 'transform translate-x-0 opacity-100'
+                        }`}
                         onClick={(e) => e.stopPropagation()}
                         />
                     </div>
@@ -267,7 +295,10 @@ export default function Gallery() {
                             e.stopPropagation()
                             navigateImage('prev')
                         }}
-                        className="fixed left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-all duration-300 z-20 backdrop-blur-sm opacity-0 group-hover:opacity-100"
+                        disabled={isAnimating}
+                        className={`fixed left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-all duration-300 z-20 backdrop-blur-sm sm:opacity-0 sm:group-hover:opacity-100 opacity-80 ${
+                          isAnimating ? 'cursor-not-allowed opacity-50' : ''
+                        }`}
                         >
                         <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
                         </button>
@@ -276,7 +307,10 @@ export default function Gallery() {
                             e.stopPropagation()
                             navigateImage('next')
                         }}
-                        className="fixed right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-all duration-300 z-20 backdrop-blur-sm opacity-0 group-hover:opacity-100"
+                        disabled={isAnimating}
+                        className={`fixed right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 sm:p-3 transition-all duration-300 z-20 backdrop-blur-sm sm:opacity-0 sm:group-hover:opacity-100 opacity-80 ${
+                          isAnimating ? 'cursor-not-allowed opacity-50' : ''
+                        }`}
                         >
                         <ChevronRight size={20} className="sm:w-6 sm:h-6" />
                         </button>

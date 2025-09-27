@@ -21,7 +21,7 @@
       "purpose": "maskable"
     },
     {
-      "src": "/icon1.png",
+      "src": "/icon.png",
       "sizes": "32x32",
       "type": "image/png",
       "purpose": "any"
