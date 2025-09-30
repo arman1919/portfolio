@@ -83,6 +83,7 @@ export default function Skills() {
                     <Badge className="mr-2 mb-2">Git</Badge>
                     <Badge className="mr-2 mb-2">Docker</Badge>
                     <Badge className="mr-2 mb-2">Cloudinary</Badge>
+                    <Badge className="mr-2 mb-2">Supabase</Badge>
                   </div>
                 </CardContent>
               </Card>

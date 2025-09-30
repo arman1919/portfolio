@@ -38,21 +38,18 @@ export default function Gallery() {
         { id: 10, thumb: "/portfolio-images/thumbs/paymeny.webp", full: "/portfolio-images/full/paymeny.webp", category: "payment", title: "Payment Integration Admin Panel" },
         { id: 11, thumb: "/portfolio-images/thumbs/popup-1.webp", full: "/portfolio-images/full/popup-1.webp", category: "banners", title: "Popup Plugin Frontend" },
         { id: 12, thumb: "/portfolio-images/thumbs/popup-demo-1.webp", full: "/portfolio-images/full/popup-demo-1.webp", category: "website", title: "Popup Plugin Demo Landing Page" },
-        { id: 13, thumb: "/portfolio-images/thumbs/popup-demo-2.webp", full: "/portfolio-images/full/popup-demo-2.webp", category: "website", title: "Popup Plugin Free Demo Landing Page" },
         { id: 14, thumb: "/portfolio-images/thumbs/q-and-a-front.webp", full: "/portfolio-images/full/q-and-a-front.webp", category: "wordpress", title: "Questions & Answers Frontend" },
         { id: 15, thumb: "/portfolio-images/thumbs/registration-login-1.webp", full: "/portfolio-images/full/registration-login-1.webp", category: "dashboard", title: "Login Form Admin Panel" },
         { id: 16, thumb: "/portfolio-images/thumbs/registration-login-2.webp", full: "/portfolio-images/full/registration-login-2.webp", category: "dashboard", title: "Registration Form Admin Panel" },
         { id: 17, thumb: "/portfolio-images/thumbs/schedule-course-section.webp", full: "/portfolio-images/full/schedule-course-section.webp", category: "wordpress", title: "Schedule Course Admin Panel" },
         { id: 18, thumb: "/portfolio-images/thumbs/levelstudio-1.webp", full: "/portfolio-images/full/levelstudio-1.webp", category: "website", title: "LevelStudio.am" },
-        { id: 19, thumb: "/portfolio-images/thumbs/levelstudio-2.webp", full: "/portfolio-images/full/levelstudio-2.webp", category: "website", title: "LevelStudio.am Calculator" },
         { id: 20, thumb: "/portfolio-images/thumbs/popup-2.webp", full: "/portfolio-images/full/popup-2.webp", category: "banners", title: "Plugin Sale Popup" },
         { id: 21, thumb: "/portfolio-images/thumbs/banner-1.webp", full: "/portfolio-images/full/banner-1.webp", category: "banners", title: "Banner Admin Panel" },
         { id: 22, thumb: "/portfolio-images/thumbs/dropic-1.webp", full: "/portfolio-images/full/dropic-1.webp", category: "website", title: "Dropic - Online Photo Album Landing Page" },
-        { id: 23, thumb: "/portfolio-images/thumbs/dropic-2.webp", full: "/portfolio-images/full/dropic-2.webp", category: "website", title: "Dropic - Edit Album Page" },
-        { id: 24, thumb: "/portfolio-images/thumbs/dropic-3.webp", full: "/portfolio-images/full/dropic-3.webp", category: "website", title: "Dropic - Frontend page" },
         { id: 25, thumb: "/portfolio-images/thumbs/woo-product.webp", full: "/portfolio-images/full/woo-product.webp", category: "wordpress", title: "WooCommerce Product Recommendation" },
         { id: 26, thumb: "/portfolio-images/thumbs/profile-settings.webp", full: "/portfolio-images/full/profile-settings.webp", category: "dashboard", title: "Profile Settings Admin Panel" },
         { id: 27, thumb: "/portfolio-images/thumbs/edit-question-answers-admin.webp", full: "/portfolio-images/full/edit-question-answers-admin.webp", category: "dashboard", title: "Edit Question Answers Admin Panel" },
+        { id: 28, thumb: "/portfolio-images/thumbs/met-tea-landing-page.webp", full: "/portfolio-images/full/met-tea-landing-page.webp", category: "website", title: "Met Tea Landing Page" },
       ]
     
       const filteredImages =
