@@ -1,38 +1,35 @@
-import { ChevronDown, Phone, Mail, MapPin, Github, Linkedin } from "lucide-react"
+import { Phone, Mail, MapPin, Github, Linkedin } from "lucide-react"
 import { Button } from "../ui/button"
+import ProfileCard from "../ProfileCard"
 
 // components/sections/Hero.tsx
 export default function Hero(props: { scrollToSection: (arg0: string) => void; }) {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
             <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-              <div className="mb-8">
-                <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-card/50 backdrop-blur-sm border border-border/20 p-2 shadow-lg">
-                  <div className="w-full h-full rounded-full bg-background/80 flex items-center justify-center overflow-hidden p-2">
-                    <img 
-                      alt="Arman Rafayelyan - Web Developer and ML Engineer from Yerevan, Armenia" 
-                      src="/icons/logo-256.png"
-                      srcSet="/icons/logo-128.png 1x, /icons/logo-256.png 2x, /icons/logo-512.png 3x"
-                      className="w-full h-full object-cover rounded-full"
-                      loading="eager"
-                    />
-                  </div>
-                </div>
+              <div className="mb-8 flex justify-center">
+                <ProfileCard
+                  name="Arman Rafayelyan"
+                  title="Web Developer & ML Engineer"
+                  handle="arman1919"
+                  status="Available for work"
+                  contactText="Contact Me"
+                  avatarUrl="/Profile-Card.png"
+                  iconUrl="/code-icon.svg"
+                  grainUrl="/grain.svg"
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={true}
+                  onContactClick={() => props.scrollToSection("contact")}
+                />
               </div>
     
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 text-balance">Arman Rafayelyan</h1>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
                 Passionate about creating innovative web solutions and leveraging machine learning to solve complex
                 problems. Experienced in full-stack development with React, WordPress plugins, Python ML, and modern technologies.
               </p>
     
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <Button
-                  onClick={() => props.scrollToSection("contact")}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  Get In Touch
-                </Button>
                 <Button
                   variant="outline"
                   onClick={() => props.scrollToSection("projects")}
