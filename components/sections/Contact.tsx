@@ -36,14 +36,13 @@ export default function Contact() {
           formDataToSend.append('email', formData.email)
           formDataToSend.append('message', formData.message)
           
-          // Добавляем файлы
           attachedFiles.forEach((file, index) => {
             formDataToSend.append(`attachment_${index}`, file)
           })
 
           const response = await fetch('/api/contact', {
             method: 'POST',
-            body: formDataToSend, // Убираем Content-Type header для FormData
+            body: formDataToSend,
           })
     
           if (response.ok) {

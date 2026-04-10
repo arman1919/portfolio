@@ -24,24 +24,64 @@ export default function Experience() {
                         {/* Timeline dot */}
                         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg z-10"></div>
                         
+                        <Card className="glass-card hover:shadow-xl transition-all duration-300 md:w-[calc(50%-2rem)] md:mr-auto group">
+                            <CardContent className="p-8">
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+                                    <div className="flex items-center gap-3 flex-1">
+                                        <div className="w-10 h-10 rounded-lg overflow-hidden bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                                            <img src="/haylogic.jpg" alt="HayLogic Line" className="w-full h-full object-cover" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">Full-Stack Developer</h3>
+                                            <div className="flex items-center gap-2 text-muted-foreground">
+                                                <span>HayLogic Line</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Badge variant="outline" className="bg-primary/5 border-primary/20 self-start sm:self-center">
+                                        <Calendar size={12} className="mr-1" />
+                                        Dec 2025 – Present
+                                    </Badge>
+                                </div>
+                                <ul className="space-y-2 text-muted-foreground">
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                                        <span>LMS & Fintech: Built a Vue.js/Laravel Academy platform with Ameriabank API and automated enrollment</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                                        <span>DevOps & Backend: Automated deployments (CI/CD) and backups using Cron, Laravel Filament, and Node.js/MongoDB</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle size={16} className="text-primary mt-1 flex-shrink-0" />
+                                        <span>Web Delivery: Developed 50+ React/Vite sites with optimized performance and dynamic multi-language support</span>
+                                    </li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    <div className="relative md:flex md:items-center">
+                        {/* Timeline dot */}
+                        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg z-10"></div>
+                        
                         <Card className="glass-card hover:shadow-xl transition-all duration-300 md:w-[calc(50%-2rem)] md:ml-auto group">
                             <CardContent className="p-8">
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
                                     <div className="flex items-center gap-3 flex-1">
-                                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                                            <Code size={20} className="text-primary" />
+                                        <div className="w-10 h-10 rounded-lg overflow-hidden bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                                            <img src="/TT-soft.webp" alt="TT-Soft" className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">WordPress Plugin Developer</h3>
                                             <div className="flex items-center gap-2 text-muted-foreground">
-                                                <Building2 size={14} />
                                                 <span>TT-Soft</span>
                                             </div>
                                         </div>
                                     </div>
                                     <Badge variant="outline" className="bg-primary/5 border-primary/20 self-start sm:self-center">
                                         <Calendar size={12} className="mr-1" />
-                                        Nov 2024 - Present
+                                        Nov 2024 - Oct 2025
                                     </Badge>
                                 </div>
                                 <ul className="space-y-2 text-muted-foreground">
@@ -85,13 +125,12 @@ export default function Experience() {
                         <Card className="glass-card hover:shadow-xl transition-all duration-300 md:w-[calc(50%-2rem)] md:mr-auto group">
                             <CardContent className="p-8">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-2 bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-colors">
-                                        <Building2 size={20} className="text-secondary" />
+                                    <div className="w-10 h-10 rounded-lg overflow-hidden bg-secondary/10 group-hover:bg-secondary/20 transition-colors flex-shrink-0">
+                                        <img src="/kaytser.jpg" alt="Kaytser" className="w-full h-full object-cover" />
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-xl font-semibold text-secondary group-hover:text-secondary/80 transition-colors">Prompt Engineer</h3>
                                         <div className="flex items-center gap-2 text-muted-foreground">
-                                            <Building2 size={14} />
                                             <span>Kaytser</span>
                                         </div>
                                     </div>
@@ -130,13 +169,12 @@ export default function Experience() {
                             <CardContent className="p-8">
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
                                     <div className="flex items-center gap-3 flex-1">
-                                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                                            <Code size={20} className="text-primary" />
+                                        <div className="w-10 h-10 rounded-lg overflow-hidden bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                                            <img src="/careaware.png" alt="CareAware" className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">ML Engineer & Python Developer</h3>
                                             <div className="flex items-center gap-2 text-muted-foreground">
-                                                <Building2 size={14} />
                                                 <span>CareAware</span>
                                             </div>
                                         </div>

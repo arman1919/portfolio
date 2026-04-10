@@ -12,7 +12,6 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About"
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
-import Gallery from "@/components/sections/Gallery";
 import Experience from "@/components/sections/Experience";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
@@ -25,7 +24,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "gallery", "experience", "contact"]
+      const sections = ["home", "about", "skills", "projects", "experience", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -88,7 +87,6 @@ export default function Portfolio() {
                   { id: "about", label: "About" },
                   { id: "skills", label: "Skills" },
                   { id: "projects", label: "Projects" },
-                  { id: "gallery", label: "Gallery" },
                   { id: "experience", label: "Experience" },
                   { id: "contact", label: "Contact" },
                 ].map((item) => (
@@ -125,7 +123,6 @@ export default function Portfolio() {
                 { id: "about", label: "About" },
                 { id: "skills", label: "Skills" },
                 { id: "projects", label: "Projects" },
-                { id: "gallery", label: "Gallery" },
                 { id: "experience", label: "Experience" },
                 { id: "contact", label: "Contact" },
               ].map((item) => (
@@ -158,8 +155,6 @@ export default function Portfolio() {
       {/* Projects Section */}
       <Projects />
       
-      {/* Gallery Section */}
-      <Gallery />
 
       {/* Professional Experience Section */}
       <Experience />
