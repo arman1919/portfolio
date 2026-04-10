@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { ExternalLink, X, ChevronLeft, ChevronRight, Search, ZoomIn, Code2, Layout, Smartphone, Zap, Globe, Cpu, CheckCircle, Database, Shield, CreditCard, Lock, Calculator, Sparkles } from "lucide-react";
 import { useScrollAnimation } from "../useScrollAnimation";
 
@@ -208,11 +209,7 @@ export default function Projects() {
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("levelstudio")}
                         >
-                            <img
-                                src="/portfolio-images/cards/levelstudio-cover.webp"
-                                alt="Level Studio Cover"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <Image src="/portfolio-images/cards/levelstudio-cover.webp" alt="Level Studio Cover" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <Search size={32} className="text-white drop-shadow-lg" />
                             </div>
@@ -305,12 +302,13 @@ export default function Projects() {
                                                         className="relative group cursor-pointer overflow-hidden rounded-2xl bg-muted border border-border/50 shadow-md hover:shadow-xl transition-all duration-300"
                                                         onClick={() => setSelectedImage(image.full)}
                                                     >
-                                                        <div className="aspect-[16/10] w-full overflow-hidden">
-                                                            <img
+                                                        <div className="aspect-[16/10] w-full overflow-hidden relative">
+                                                            <Image
                                                                 src={image.full}
                                                                 alt={image.title}
-                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                                loading="lazy"
+                                                                fill
+                                                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                             />
                                                         </div>
                                                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -410,11 +408,7 @@ export default function Projects() {
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("travelagency")}
                         >
-                            <img
-                                src="/portfolio-images/cards/travelagency-cover.webp"
-                                alt="Travel Agency Website"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <Image src="/portfolio-images/cards/travelagency-cover.webp" alt="Travel Agency Website" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <Search size={32} className="text-white drop-shadow-lg" />
                             </div>
@@ -505,12 +499,13 @@ export default function Projects() {
                                                         className="relative group cursor-pointer overflow-hidden rounded-2xl bg-muted border border-border/50 shadow-md hover:shadow-xl transition-all duration-300"
                                                         onClick={() => setSelectedImage(image.full)}
                                                     >
-                                                        <div className="aspect-[16/10] w-full overflow-hidden">
-                                                            <img
+                                                        <div className="aspect-[16/10] w-full overflow-hidden relative">
+                                                            <Image
                                                                 src={image.full}
                                                                 alt={image.title}
-                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                                loading="lazy"
+                                                                fill
+                                                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                             />
                                                         </div>
                                                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -616,11 +611,7 @@ export default function Projects() {
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("trainup")}
                         >
-                            <img
-                                src="/portfolio-images/cards/trainup-cover.webp"
-                                alt="TrainUp Academy Platform"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <Image src="/portfolio-images/cards/trainup-cover.webp" alt="TrainUp Academy Platform" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <Search size={32} className="text-white drop-shadow-lg" />
                             </div>
@@ -711,12 +702,13 @@ export default function Projects() {
                                                         className="relative group cursor-pointer overflow-hidden rounded-2xl bg-muted border border-border/50 shadow-md hover:shadow-xl transition-all duration-300"
                                                         onClick={() => setSelectedImage(image.full)}
                                                     >
-                                                        <div className="aspect-[16/10] w-full overflow-hidden">
-                                                            <img
+                                                        <div className="aspect-[16/10] w-full overflow-hidden relative">
+                                                            <Image
                                                                 src={image.full}
                                                                 alt={image.title}
-                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                                loading="lazy"
+                                                                fill
+                                                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                             />
                                                         </div>
                                                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -818,11 +810,7 @@ export default function Projects() {
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("axion")}
                         >
-                            <img
-                                src="/portfolio-images/cards/axion-cover.webp"
-                                alt="Axion Landing Pages"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <Image src="/portfolio-images/cards/axion-cover.webp" alt="Axion Landing Pages" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <Search size={32} className="text-white drop-shadow-lg" />
                             </div>
@@ -913,12 +901,13 @@ export default function Projects() {
                                                         className="relative group cursor-pointer overflow-hidden rounded-2xl bg-muted border border-border/50 shadow-md hover:shadow-xl transition-all duration-300"
                                                         onClick={() => setSelectedImage(image.full)}
                                                     >
-                                                        <div className="aspect-[16/10] w-full overflow-hidden">
-                                                            <img
+                                                        <div className="aspect-[16/10] w-full overflow-hidden relative">
+                                                            <Image
                                                                 src={image.full}
                                                                 alt={image.title}
-                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                                loading="lazy"
+                                                                fill
+                                                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                             />
                                                         </div>
                                                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1020,11 +1009,7 @@ export default function Projects() {
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("uinvite")}
                         >
-                            <img
-                                src="/portfolio-images/cards/uinvite-cover.webp"
-                                alt="uInvite Online Invitations"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <Image src="/portfolio-images/cards/uinvite-cover.webp" alt="uInvite Online Invitations" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <Search size={32} className="text-white drop-shadow-lg" />
                             </div>
@@ -1115,12 +1100,13 @@ export default function Projects() {
                                                         className="relative group cursor-pointer overflow-hidden rounded-2xl bg-muted border border-border/50 shadow-md hover:shadow-xl transition-all duration-300"
                                                         onClick={() => setSelectedImage(image.full)}
                                                     >
-                                                        <div className="aspect-[16/10] w-full overflow-hidden">
-                                                            <img
+                                                        <div className="aspect-[16/10] w-full overflow-hidden relative">
+                                                            <Image
                                                                 src={image.full}
                                                                 alt={image.title}
-                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                                loading="lazy"
+                                                                fill
+                                                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                             />
                                                         </div>
                                                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1222,11 +1208,7 @@ export default function Projects() {
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("aiswift")}
                         >
-                            <img
-                                src="/portfolio-images/cards/aiswift-cover.webp"
-                                alt="AISwift Template Platform"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <Image src="/portfolio-images/cards/aiswift-cover.webp" alt="AISwift Template Platform" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <Search size={32} className="text-white drop-shadow-lg" />
                             </div>
@@ -1317,12 +1299,13 @@ export default function Projects() {
                                                         className="relative group cursor-pointer overflow-hidden rounded-2xl bg-muted border border-border/50 shadow-md hover:shadow-xl transition-all duration-300"
                                                         onClick={() => setSelectedImage(image.full)}
                                                     >
-                                                        <div className="aspect-[16/10] w-full overflow-hidden">
-                                                            <img
+                                                        <div className="aspect-[16/10] w-full overflow-hidden relative">
+                                                            <Image
                                                                 src={image.full}
                                                                 alt={image.title}
-                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                                loading="lazy"
+                                                                fill
+                                                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                             />
                                                         </div>
                                                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1432,10 +1415,7 @@ export default function Projects() {
                                 onTouchMove={onTouchMove}
                                 onTouchEnd={onTouchEnd}
                             >
-                                <img
-                                    src={selectedImage}
-                                    alt="Project Screenshot"
-                                    className={`shadow-2xl transition-all duration-300 ${isZoomed
+                                <Image src={selectedImage || "/placeholder.svg"} width={1920} height={1080} alt="Project Screenshot" className={`shadow-2xl transition-all duration-300 ${isZoomed
                                             ? "w-full lg:w-auto lg:max-w-screen-xl h-auto cursor-zoom-out my-0 lg:my-12"
                                             : "max-w-full max-h-[95vh] w-auto h-auto object-contain cursor-zoom-in"
                                         } ${isAnimating

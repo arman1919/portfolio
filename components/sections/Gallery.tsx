@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import {ChevronLeft, ChevronRight, Filter, Search, X, ZoomIn } from "lucide-react"
 import { Badge } from "../ui/badge"
 import { Button } from "../ui/button"
+import Image from "next/image"
 
 export default function Gallery() {
 
@@ -192,12 +193,13 @@ export default function Gallery() {
                     className="relative group cursor-pointer overflow-hidden rounded-lg bg-card shadow-lg hover:shadow-xl transition-all duration-300"
                     onClick={() => setSelectedImage(image.full)}
                 >
-                    <div className="aspect-[4/3] w-full overflow-hidden">
-                    <img 
+                    <div className="aspect-[4/3] w-full overflow-hidden relative">
+                    <Image 
                         src={image.thumb || "/placeholder.svg"} 
                         alt={image.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     </div>
                     
@@ -260,11 +262,13 @@ export default function Gallery() {
                     onTouchMove={onTouchMove}
                     onTouchEnd={onTouchEnd}
                     >
-                    <div className="p-4 pt-0">
-                        <img 
+                    <div className="p-4 pt-0 flex justify-center">
+                        <Image 
                         src={selectedImage} 
                         alt="Portfolio Image" 
-                        className={`max-w-full w-auto h-auto object-contain rounded-lg shadow-2xl transition-all duration-300 ${
+                        width={1200}
+                        height={800}
+                        className={`max-w-full w-auto h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl transition-all duration-300 ${
                           isAnimating 
                             ? animationDirection === 'left' 
                               ? 'transform translate-x-full opacity-0' 

@@ -1,4 +1,5 @@
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 export default function Footer(props: { scrollToSection: (sectionId: string) => void }) {
     return (
@@ -7,11 +8,12 @@ export default function Footer(props: { scrollToSection: (sectionId: string) => 
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0 flex items-center gap-4">
               <div className="flex-shrink-0">
-                <img 
+                <Image 
                   src="/icons/logo-128.png"
-                  srcSet="/icons/logo-128.png 1x, /icons/logo-256.png 2x"
                   alt="Arman Rafayelyan"
-                  className="w-8 h-8 rounded-full opacity-80"
+                  width={32}
+                  height={32}
+                  className="rounded-full opacity-80"
                 />
               </div>
               <div>

@@ -2,6 +2,7 @@ import { CheckCircle, Calendar, MapPin, Building2, Code, Briefcase } from "lucid
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { useScrollAnimation } from "../useScrollAnimation";
+import Image from "next/image";
 
 export default function Experience() {
     const titleBadgeAnim = useScrollAnimation('zoom-in', { threshold: 0.2 });
@@ -41,7 +42,7 @@ export default function Experience() {
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
                                     <div className="flex items-center gap-3 flex-1">
                                         <div className="w-10 h-10 rounded-lg overflow-hidden bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                                            <img src="/haylogic.jpg" alt="HayLogic Line" className="w-full h-full object-cover" />
+                                            <Image src="/haylogic.jpg" alt="HayLogic Line" width={40} height={40} className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">Full-Stack Developer</h3>
@@ -82,7 +83,7 @@ export default function Experience() {
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
                                     <div className="flex items-center gap-3 flex-1">
                                         <div className="w-10 h-10 rounded-lg overflow-hidden bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                                            <img src="/TT-soft.webp" alt="TT-Soft" className="w-full h-full object-cover" />
+                                            <Image src="/TT-soft.webp" alt="TT-Soft" width={40} height={40} className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">WordPress Plugin Developer</h3>
@@ -138,7 +139,7 @@ export default function Experience() {
                             <CardContent className="p-8">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-10 h-10 rounded-lg overflow-hidden bg-secondary/10 group-hover:bg-secondary/20 transition-colors flex-shrink-0">
-                                        <img src="/kaytser.jpg" alt="Kaytser" className="w-full h-full object-cover" />
+                                        <Image src="/kaytser.jpg" alt="Kaytser" width={40} height={40} className="w-full h-full object-cover" />
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-xl font-semibold text-secondary group-hover:text-secondary/80 transition-colors">Prompt Engineer</h3>
@@ -182,7 +183,7 @@ export default function Experience() {
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
                                     <div className="flex items-center gap-3 flex-1">
                                         <div className="w-10 h-10 rounded-lg overflow-hidden bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                                            <img src="/careaware.png" alt="CareAware" className="w-full h-full object-cover" />
+                                            <Image src="/careaware.png" alt="CareAware" width={40} height={40} className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-xl font-semibold text-primary group-hover:text-primary/80 transition-colors">ML Engineer & Python Developer</h3>
