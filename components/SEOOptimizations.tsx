@@ -2,7 +2,6 @@ export default function SEOOptimizations() {
   return (
     <>
       {/* Preload critical resources */}
-      <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
       

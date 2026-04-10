@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
 
     // Prepare email data
     const emailData: any = {
-      from: 'portfolio@armanrafayelyan.com',
+      from: 'onboarding@resend.dev',
       to: 'arman.raf2001@gmail.com',
       subject: `Portfolio Contact: ${name}${attachments.length > 0 ? ` (${attachments.length} attachment${attachments.length > 1 ? 's' : ''})` : ''}`,
       html: `
@@ -101,7 +101,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    await resend.emails.send(emailData)
+    const { data, error } = await resend.emails.send(emailData)
+
+    if (error) {
+      console.error('Resend API error:', error)
+      return NextResponse.json(
+        { error: 'Failed to send message via Resend. Check server logs.' },
+        { status: 500 }
+      )
+    }
 
     return NextResponse.json(
       { message: 'Message sent successfully' },
