@@ -2,17 +2,26 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GraduationCap, Users, Languages } from "lucide-react"
+import { useScrollAnimation } from "../useScrollAnimation"
 
 export default function About() {
+    const titleAnim = useScrollAnimation('blur-in', { threshold: 0.2 });
+    const descAnim = useScrollAnimation('fade-up', { delay: 100 });
+    const eduCardAnim = useScrollAnimation('fade-left', { delay: 200 });
+    const skillsCardAnim = useScrollAnimation('fade-right', { delay: 150 });
+    const langCardAnim = useScrollAnimation('fade-right', { delay: 300 });
+
     return (
         <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">About Me</h2>
+                <div ref={titleAnim.ref} className={titleAnim.className}>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">About Me</h2>
+                </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 {/* Left Column: Education & Professional Journey */}
                 <div className="space-y-8 w-full">
-                    <div>
+                    <div ref={descAnim.ref} className={descAnim.className}>
                     <p className="text-xl text-muted-foreground mb-6 text-pretty leading-relaxed">
                     I am a fullstack web developer, creating modern, responsive landing pages and web applications that are both visually appealing and user-friendly. I handle the full development process, from interface design and frontend layout to server-side logic, databases, and cloud integration.                </p>
                     <p className="text-lg text-muted-foreground mb-8 text-pretty leading-relaxed">
@@ -21,6 +30,7 @@ export default function About() {
                     </div>
 
                     {/* Education Card */}
+                    <div ref={eduCardAnim.ref} className={eduCardAnim.className}>
                     <Card className="glass-card">
                     <CardContent className="p-6 sm:p-8">
                         <div className="flex items-center mb-6">
@@ -71,11 +81,13 @@ export default function About() {
                         </div>
                     </CardContent>
                     </Card>
+                    </div>
                 </div>
 
                 {/* Right Column: Skills & Languages */}
                 <div className="space-y-8 w-full">
                     {/* Soft Skills Card */}
+                    <div ref={skillsCardAnim.ref} className={skillsCardAnim.className}>
                     <Card className="glass-card">
                     <CardContent className="p-6 sm:p-8">
                         <div className="flex items-center mb-6">
@@ -139,8 +151,10 @@ export default function About() {
                         </div>
                     </CardContent>
                     </Card>
+                    </div>
 
                     {/* Languages Card */}
+                    <div ref={langCardAnim.ref} className={langCardAnim.className}>
                     <Card className="glass-card">
                     <CardContent className="p-6 sm:p-8">
                         <div className="flex items-center mb-6">
@@ -193,6 +207,7 @@ export default function About() {
                         </div>
                     </CardContent>
                     </Card>
+                    </div>
                 </div>
                 </div>
             </div>

@@ -1,13 +1,20 @@
 import { Phone, Mail, MapPin, Github, Linkedin } from "lucide-react"
 import { Button } from "../ui/button"
 import ProfileCard from "../ProfileCard"
+import { useScrollAnimation } from "../useScrollAnimation"
 
 // components/sections/Hero.tsx
 export default function Hero(props: { scrollToSection: (arg0: string) => void; }) {
+    const profileAnim = useScrollAnimation('blur-in', { threshold: 0.1, delay: 100 });
+    const descAnim = useScrollAnimation('fade-up', { threshold: 0.1, delay: 300 });
+    const buttonsAnim = useScrollAnimation('fade-up', { threshold: 0.1, delay: 500 });
+    const contactsAnim = useScrollAnimation('fade-up', { threshold: 0.1, delay: 650 });
+    const socialsAnim = useScrollAnimation('zoom-in', { threshold: 0.1, delay: 800 });
+
     return (
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
             <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-              <div className="mb-8 flex justify-center">
+              <div ref={profileAnim.ref} className={`mb-8 flex justify-center ${profileAnim.className}`}>
                 <ProfileCard
                   name="Arman Rafayelyan"
                   title="Web Developer & ML Engineer"
@@ -24,12 +31,14 @@ export default function Hero(props: { scrollToSection: (arg0: string) => void; }
                 />
               </div>
     
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
-                Passionate about creating innovative web solutions and leveraging machine learning to solve complex
-                problems. Experienced in full-stack development with React, WordPress plugins, Python ML, and modern technologies.
-              </p>
+              <div ref={descAnim.ref} className={descAnim.className}>
+                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
+                  Passionate about creating innovative web solutions and leveraging machine learning to solve complex
+                  problems. Experienced in full-stack development with React, WordPress plugins, Python ML, and modern technologies.
+                </p>
+              </div>
     
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <div ref={buttonsAnim.ref} className={`flex flex-col sm:flex-row gap-4 justify-center mb-12 ${buttonsAnim.className}`}>
                 <Button
                   variant="outline"
                   onClick={() => props.scrollToSection("projects")}
@@ -39,7 +48,7 @@ export default function Hero(props: { scrollToSection: (arg0: string) => void; }
                 </Button>
               </div>
     
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm text-muted-foreground">
+              <div ref={contactsAnim.ref} className={`flex flex-col sm:flex-row gap-6 justify-center items-center text-sm text-muted-foreground ${contactsAnim.className}`}>
                 <div className="flex items-center gap-2">
                   <Phone size={16} />
                   <a 
@@ -72,7 +81,7 @@ export default function Hero(props: { scrollToSection: (arg0: string) => void; }
               </div>
 
               {/* Social Links */}
-              <div className="flex justify-center items-center gap-6 mt-8">
+              <div ref={socialsAnim.ref} className={`flex justify-center items-center gap-6 mt-8 ${socialsAnim.className}`}>
                 <a 
                   href="https://github.com/arman1919" 
                   target="_blank" 

@@ -2,6 +2,7 @@ import { Mail, Phone, MapPin, Paperclip, X } from "lucide-react";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 import { useState } from "react";
+import { useScrollAnimation } from "../useScrollAnimation";
 
 export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -9,10 +10,17 @@ export default function Contact() {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" })
     const [attachedFiles, setAttachedFiles] = useState<File[]>([])
 
+    const titleAnim = useScrollAnimation('blur-in', { threshold: 0.2 });
+    const leftAnim = useScrollAnimation('fade-left', { delay: 100 });
+    const card1 = useScrollAnimation('stagger', { delay: 0 });
+    const card2 = useScrollAnimation('stagger', { delay: 120 });
+    const card3 = useScrollAnimation('stagger', { delay: 240 });
+    const formAnim = useScrollAnimation('fade-right', { delay: 200 });
+
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(e.target.files || [])
         const validFiles = files.filter(file => {
-            // Ограничиваем размер файла до 10MB
+            // Limit file size to 10MB
             if (file.size > 10 * 1024 * 1024) {
                 alert(`File ${file.name} is too large. Maximum size is 10MB.`)
                 return false
@@ -65,17 +73,22 @@ export default function Contact() {
     return (
         <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Get In Touch</h2>
+            <div ref={titleAnim.ref} className={titleAnim.className}>
+                <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Get In Touch</h2>
+            </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
                 <div>
+                <div ref={leftAnim.ref} className={leftAnim.className}>
                 <h3 className="text-2xl font-semibold mb-6">Let's Start a Conversation</h3>
                 <p className="text-lg text-muted-foreground mb-8 text-pretty">
                     I'm always interested in new opportunities and exciting projects. Whether you have a specific idea in
                     mind or just want to explore possibilities, I'd love to hear from you.
                 </p>
+                </div>
 
                 <div className="space-y-6">
+                    <div ref={card1.ref} className={card1.className}>
                     <Card className="glass-card">
                     <CardContent className="p-6">
                         <div className="flex items-center gap-4">
@@ -94,7 +107,9 @@ export default function Contact() {
                         </div>
                     </CardContent>
                     </Card>
+                    </div>
 
+                    <div ref={card2.ref} className={card2.className}>
                     <Card className="glass-card">
                     <CardContent className="p-6">
                         <div className="flex items-center gap-4">
@@ -113,7 +128,9 @@ export default function Contact() {
                         </div>
                     </CardContent>
                     </Card>
+                    </div>
 
+                    <div ref={card3.ref} className={card3.className}>
                     <Card className="glass-card">
                     <CardContent className="p-6">
                         <div className="flex items-center gap-4">
@@ -134,9 +151,11 @@ export default function Contact() {
                         </div>
                     </CardContent>
                     </Card>
+                    </div>
                 </div>
                 </div>
 
+                <div ref={formAnim.ref} className={formAnim.className}>
                 <Card className="glass-card">
                 <CardContent className="p-8">
                     <form onSubmit={handleFormSubmit} className="space-y-6">
@@ -248,6 +267,7 @@ export default function Contact() {
                     </form>
                 </CardContent>
                 </Card>
+                </div>
             </div>
             </div>
         </section>

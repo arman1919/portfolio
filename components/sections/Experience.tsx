@@ -1,26 +1,38 @@
 import { CheckCircle, Calendar, MapPin, Building2, Code, Briefcase } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
+import { useScrollAnimation } from "../useScrollAnimation";
 
 export default function Experience() {
+    const titleBadgeAnim = useScrollAnimation('zoom-in', { threshold: 0.2 });
+    const titleAnim = useScrollAnimation('blur-in', { delay: 100 });
+    const exp1 = useScrollAnimation('fade-left', { delay: 0 });
+    const exp2 = useScrollAnimation('fade-right', { delay: 100 });
+    const exp3 = useScrollAnimation('fade-left', { delay: 200 });
+    const exp4 = useScrollAnimation('fade-right', { delay: 300 });
+
     return (
         <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-16">
+                    <div ref={titleBadgeAnim.ref} className={titleBadgeAnim.className}>
                     <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-4">
                         <Briefcase size={20} className="text-primary" />
                         <span className="text-sm font-medium text-primary">Career Journey</span>
                     </div>
+                    </div>
+                    <div ref={titleAnim.ref} className={titleAnim.className}>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-balance">Professional Experience</h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">My journey through different roles and technologies, building expertise in web development and AI</p>
+                    </div>
                 </div>
 
                 {/* Timeline line */}
                 <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-primary/20 h-full"></div>
                 
                 <div className="space-y-12">
-                    <div className="relative md:flex md:items-center">
+                    <div ref={exp1.ref} className={`relative md:flex md:items-center ${exp1.className}`}>
                         {/* Timeline dot */}
                         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg z-10"></div>
                         
@@ -61,7 +73,7 @@ export default function Experience() {
                         </Card>
                     </div>
 
-                    <div className="relative md:flex md:items-center">
+                    <div ref={exp2.ref} className={`relative md:flex md:items-center ${exp2.className}`}>
                         {/* Timeline dot */}
                         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg z-10"></div>
                         
@@ -118,7 +130,7 @@ export default function Experience() {
                         </Card>
                     </div>
 
-                    <div className="relative md:flex md:items-center">
+                    <div ref={exp3.ref} className={`relative md:flex md:items-center ${exp3.className}`}>
                         {/* Timeline dot */}
                         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-secondary rounded-full border-4 border-background shadow-lg z-10"></div>
                         
@@ -161,7 +173,7 @@ export default function Experience() {
                         </Card>
                     </div>
 
-                    <div className="relative md:flex md:items-center">
+                    <div ref={exp4.ref} className={`relative md:flex md:items-center ${exp4.className}`}>
                         {/* Timeline dot */}
                         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg z-10"></div>
                         

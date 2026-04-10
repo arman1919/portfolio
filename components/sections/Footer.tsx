@@ -15,7 +15,7 @@ export default function Footer(props: { scrollToSection: (sectionId: string) => 
                 />
               </div>
               <div>
-                <p className="text-muted-foreground">2025 Arman Rafayelyan. All rights reserved.</p>
+                <p className="text-muted-foreground">2026 Arman Rafayelyan. All rights reserved.</p>
                 <p className="text-sm text-muted-foreground">Built with React, Next.js & Tailwind CSS</p>
               </div>
             </div>

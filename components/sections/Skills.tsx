@@ -3,15 +3,29 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Layout, Database, Server, Activity, Zap, Shield, Brain } from "lucide-react";
+import { useScrollAnimation } from "../useScrollAnimation";
 
 export default function Skills() {
+    const titleAnim = useScrollAnimation('blur-in', { threshold: 0.2 });
+    const card1 = useScrollAnimation('flip-up', { delay: 0 });
+    const card2 = useScrollAnimation('flip-up', { delay: 100 });
+    const card3 = useScrollAnimation('flip-up', { delay: 200 });
+    const card4 = useScrollAnimation('flip-up', { delay: 300 });
+    const subTitleAnim = useScrollAnimation('fade-up', { delay: 100 });
+    const spec1 = useScrollAnimation('stagger', { delay: 0 });
+    const spec2 = useScrollAnimation('stagger', { delay: 120 });
+    const spec3 = useScrollAnimation('stagger', { delay: 240 });
+
     return (
         <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Technical Expertise</h2>
+            <div ref={titleAnim.ref} className={titleAnim.className}>
+              <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Technical Expertise</h2>
+            </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <div ref={card1.ref} className={card1.className}>
+              <Card className="glass-card hover:scale-105 transition-transform duration-300 h-full">
                 <CardContent className="p-6">
                   <Layout className="text-primary mb-4" size={40} />
                   <h3 className="font-semibold mb-4 text-lg">Frontend Development</h3>
@@ -26,8 +40,10 @@ export default function Skills() {
                   </div>
                 </CardContent>
               </Card>
+              </div>
 
-              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <div ref={card2.ref} className={card2.className}>
+              <Card className="glass-card hover:scale-105 transition-transform duration-300 h-full">
                 <CardContent className="p-6">
                   <Database className="text-secondary mb-4" size={40} />
                   <h3 className="font-semibold mb-4 text-lg">Backend & Databases</h3>
@@ -41,8 +57,10 @@ export default function Skills() {
                   </div>
                 </CardContent>
               </Card>
+              </div>
 
-              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <div ref={card3.ref} className={card3.className}>
+              <Card className="glass-card hover:scale-105 transition-transform duration-300 h-full">
                 <CardContent className="p-6">
                   <Server className="text-emerald-500 mb-4" size={40} />
                   <h3 className="font-semibold mb-4 text-lg">DevOps & Cloud</h3>
@@ -57,8 +75,10 @@ export default function Skills() {
                   </div>
                 </CardContent>
               </Card>
+              </div>
 
-              <Card className="glass-card hover:scale-105 transition-transform duration-300">
+              <div ref={card4.ref} className={card4.className}>
+              <Card className="glass-card hover:scale-105 transition-transform duration-300 h-full">
                 <CardContent className="p-6">
                   <Activity className="text-blue-500 mb-4" size={40} />
                   <h3 className="font-semibold mb-4 text-lg">Integrations & Tools</h3>
@@ -72,12 +92,16 @@ export default function Skills() {
                   </div>
                 </CardContent>
               </Card>
+              </div>
             </div>
 
             <div className="mt-12">
-              <h3 className="text-2xl font-bold text-center mb-8 text-balance">Specialized Knowledge</h3>
+              <div ref={subTitleAnim.ref} className={subTitleAnim.className}>
+                <h3 className="text-2xl font-bold text-center mb-8 text-balance">Specialized Knowledge</h3>
+              </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <div ref={spec1.ref} className={spec1.className}>
+                <Card className="glass-card hover:scale-105 transition-transform duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
                       <div className="p-2 bg-primary/10 rounded-lg mr-3">
@@ -95,8 +119,10 @@ export default function Skills() {
                     </div>
                   </CardContent>
                 </Card>
+                </div>
 
-                <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <div ref={spec2.ref} className={spec2.className}>
+                <Card className="glass-card hover:scale-105 transition-transform duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
                       <div className="p-2 bg-secondary/10 rounded-lg mr-3">
@@ -114,8 +140,10 @@ export default function Skills() {
                     </div>
                   </CardContent>
                 </Card>
+                </div>
 
-                <Card className="glass-card hover:scale-105 transition-transform duration-300">
+                <div ref={spec3.ref} className={spec3.className}>
+                <Card className="glass-card hover:scale-105 transition-transform duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
                       <div className="p-2 bg-purple-500/10 rounded-lg mr-3">
@@ -133,6 +161,7 @@ export default function Skills() {
                     </div>
                   </CardContent>
                 </Card>
+                </div>
               </div>
             </div>
 

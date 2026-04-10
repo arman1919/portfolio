@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, X, ChevronLeft, ChevronRight, Search, ZoomIn, Code2, Layout, Smartphone, Zap, Globe, Cpu, CheckCircle, Database, Shield, CreditCard, Lock, Calculator, Sparkles } from "lucide-react";
+import { useScrollAnimation } from "../useScrollAnimation";
 
 type PopupId = "levelstudio" | "travelagency" | "trainup" | "axion" | "uinvite" | "aiswift" | null;
 
@@ -16,6 +17,15 @@ export default function Projects() {
     const [animationDirection, setAnimationDirection] = useState<'left' | 'right' | null>(null);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    // Scroll animations
+    const titleAnim = useScrollAnimation('blur-in', { threshold: 0.2 });
+    const proj1 = useScrollAnimation('stagger', { delay: 0 });
+    const proj2 = useScrollAnimation('stagger', { delay: 100 });
+    const proj3 = useScrollAnimation('stagger', { delay: 200 });
+    const proj4 = useScrollAnimation('stagger', { delay: 100 });
+    const proj5 = useScrollAnimation('stagger', { delay: 200 });
+    const proj6 = useScrollAnimation('stagger', { delay: 300 });
 
     // LevelStudio project images
     const levelstudioImages = [
@@ -185,11 +195,14 @@ export default function Projects() {
     return (
         <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Featured Projects</h2>
+                <div ref={titleAnim.ref} className={titleAnim.className}>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-balance">Featured Projects</h2>
+                </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50">
+                    <div ref={proj1.ref} className={proj1.className}>
+                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50 h-full">
                         {/* Main Thumbnail Area */}
                         <div
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
@@ -247,6 +260,7 @@ export default function Projects() {
                             </div>
                         </CardContent>
                     </Card>
+                    </div>
 
                     {activePopup === "levelstudio" && (
                         <>
@@ -390,7 +404,8 @@ export default function Projects() {
                     )}
 
                     {/* Travel Agency Card */}
-                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50">
+                    <div ref={proj2.ref} className={proj2.className}>
+                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50 h-full">
                         <div
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("travelagency")}
@@ -446,6 +461,7 @@ export default function Projects() {
                             </div>
                         </CardContent>
                     </Card>
+                    </div>
 
                     {/* Travel Agency Popup */}
                     {activePopup === "travelagency" && (
@@ -594,7 +610,8 @@ export default function Projects() {
                     )}
 
                     {/* TrainUp Academy Card */}
-                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50">
+                    <div ref={proj3.ref} className={proj3.className}>
+                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50 h-full">
                         <div
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("trainup")}
@@ -650,6 +667,7 @@ export default function Projects() {
                             </div>
                         </CardContent>
                     </Card>
+                    </div>
 
                     {/* TrainUp Popup */}
                     {activePopup === "trainup" && (
@@ -794,7 +812,8 @@ export default function Projects() {
                     )}
 
                     {/* axion Card */}
-                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50">
+                    <div ref={proj4.ref} className={proj4.className}>
+                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50 h-full">
                         <div
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("axion")}
@@ -850,6 +869,7 @@ export default function Projects() {
                             </div>
                         </CardContent>
                     </Card>
+                    </div>
 
                     {/* axion Popup */}
                     {activePopup === "axion" && (
@@ -994,7 +1014,8 @@ export default function Projects() {
                     )}
 
                     {/* uInvite Card */}
-                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50">
+                    <div ref={proj5.ref} className={proj5.className}>
+                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50 h-full">
                         <div
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("uinvite")}
@@ -1050,6 +1071,7 @@ export default function Projects() {
                             </div>
                         </CardContent>
                     </Card>
+                    </div>
 
                     {/* uInvite Popup */}
                     {activePopup === "uinvite" && (
@@ -1194,7 +1216,8 @@ export default function Projects() {
                     )}
 
                     {/* AISwift Card */}
-                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50">
+                    <div ref={proj6.ref} className={proj6.className}>
+                    <Card className="glass-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group overflow-hidden flex flex-col border border-border/50 h-full">
                         <div
                             className="relative w-full h-56 overflow-hidden cursor-pointer bg-muted"
                             onClick={() => openPopup("aiswift")}
@@ -1250,6 +1273,7 @@ export default function Projects() {
                             </div>
                         </CardContent>
                     </Card>
+                    </div>
 
                     {/* AISwift Popup */}
                     {activePopup === "aiswift" && (
