@@ -124,7 +124,12 @@
     @apply bg-background text-foreground;
   }
 
-  /* Плавная прокрутка для навигации */
+  /* Плавная прокрутка для навигации и исправление горизонтального скролла на мобильных */
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -194,7 +199,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a0f 100%);
     z-index: -3;
   }
@@ -204,7 +209,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     background-image: 
       linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
@@ -218,7 +223,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     z-index: -1;
     pointer-events: none;
   }

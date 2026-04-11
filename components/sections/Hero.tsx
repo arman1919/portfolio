@@ -12,7 +12,7 @@ export default function Hero(props: { scrollToSection: (arg0: string) => void; }
     const socialsAnim = useScrollAnimation('zoom-in', { threshold: 0.1, delay: 800 });
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
+        <section id="home" className="min-h-dvh flex items-center justify-center relative overflow-hidden pt-24 w-full">
             <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
               <div ref={profileAnim.ref} className={`mb-8 flex justify-center ${profileAnim.className}`}>
                 <ProfileCard
